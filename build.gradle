@@ -1,0 +1,22 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'idea'
+
+version = "1.0.0"
+group = "imagemagick"
+
+buildscript {
+    dependencies {
+        classpath "tiny.android:gradle-android-plugin:1.0.0-SNAPSHOT"
+    }
+}
+
+apply plugin: 'andjar'
+
+dependencies {
+    compile 'tiny:tiny.log:1.0.0-SNAPSHOT'
+}
+
+
+
+
