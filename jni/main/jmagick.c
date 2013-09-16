@@ -18,8 +18,8 @@ void throwMagickException(JNIEnv *env, const char *mesg)
 
     magickExceptionClass = (*env)->FindClass(env, "magick/MagickException");
     if (magickExceptionClass == 0) {
-	fprintf(stderr, "Cannot find MagickException class\n");
-	return;
+    fprintf(stderr, "Cannot find MagickException class\n");
+    return;
     }
     (*env)->ThrowNew(env, magickExceptionClass, mesg);
 }
@@ -34,8 +34,8 @@ void throwMagickException(JNIEnv *env, const char *mesg)
  *   exception  points to a ImageMagick ExceptionInfo structure
  */
 void throwMagickApiException(JNIEnv *env,
-			     const char *mesg,
-			     const ExceptionInfo *exception)
+                 const char *mesg,
+                 const ExceptionInfo *exception)
 {
     jclass magickApiExceptionClass;
     jmethodID consMethodID = 0;
@@ -45,62 +45,62 @@ void throwMagickApiException(JNIEnv *env,
 
     /* Find the class ID */
     magickApiExceptionClass =
-	(*env)->FindClass(env, "magick/MagickApiException");
+    (*env)->FindClass(env, "magick/MagickApiException");
     if (magickApiExceptionClass == 0) {
-	fprintf(stderr, "Cannot find MagickApiException class\n");
-	return;
+    fprintf(stderr, "Cannot find MagickApiException class\n");
+    return;
     }
 
     /* Find the constructor ID */
     consMethodID =
-	(*env)->GetMethodID(env, magickApiExceptionClass,
-			    "<init>",
-			    "(ILjava/lang/String;Ljava/lang/String;)V");
+    (*env)->GetMethodID(env, magickApiExceptionClass,
+                "<init>",
+                "(ILjava/lang/String;Ljava/lang/String;)V");
     if (consMethodID == 0) {
-	return;
+    return;
     }
 
     /* Obtain the string objects */
     jreason = (*env)->NewStringUTF(env, exception->reason);
     if (jreason == NULL) {
 #ifdef DIAGNOSTIC
-	fprintf(stderr,
-		"throwMagickApiException: "
-		"Unable to create reason string\n");
+    fprintf(stderr,
+        "throwMagickApiException: "
+        "Unable to create reason string\n");
 #endif
-	return;
+    return;
     }
 
     jdescription = (*env)->NewStringUTF(env, exception->description);
     if (jdescription == NULL) {
 #ifdef DIAGNOSTIC
-	fprintf(stderr,
-		"throwMagickApiException: "
-		"Unable to create description string\n");
+    fprintf(stderr,
+        "throwMagickApiException: "
+        "Unable to create description string\n");
 #endif
-	return;
+    return;
     }
 
     /* Create the MagickApiException object */
     newObj = (*env)->NewObject(env, magickApiExceptionClass, consMethodID,
-			       exception->severity,
+                   exception->severity,
                                jreason, jdescription);
     if (newObj == NULL) {
 #ifdef DIAGNOSTIC
-	fprintf(stderr,
-		"throwMagickApiException: "
-		"Unable to create MagickApiException object\n");
+    fprintf(stderr,
+        "throwMagickApiException: "
+        "Unable to create MagickApiException object\n");
 #endif
-	return;
+    return;
     }
 
     /* Throw the exception. */
     result = (*env)->Throw(env, newObj);
 #ifdef DIAGNOSTIC
     if (result != 0) {
-	fprintf(stderr,
-		"throwMagickApiException: "
-		"Fail to throw MagickApiException");
+    fprintf(stderr,
+        "throwMagickApiException: "
+        "Fail to throw MagickApiException");
     }
 #endif
 }
@@ -120,31 +120,31 @@ void throwMagickApiException(JNIEnv *env,
  *   fieldId     if non-null, will contain field ID of the handle on output.
  */
 void *getHandle(JNIEnv *env,
-		jobject obj,
-		const char *handleName,
-		jfieldID *fieldId)
+        jobject obj,
+        const char *handleName,
+        jfieldID *fieldId)
 {
     jclass objClass;
     jfieldID handleFid;
 
     /* Retrieve the field ID of the handle */
     if (fieldId == NULL) {
-	objClass = (*env)->GetObjectClass(env, obj);
-	if (objClass == 0) {
-	    return NULL;
-	}
-	handleFid = (*env)->GetFieldID(env, objClass, handleName, "J");
+    objClass = (*env)->GetObjectClass(env, obj);
+    if (objClass == 0) {
+        return NULL;
+    }
+    handleFid = (*env)->GetFieldID(env, objClass, handleName, "J");
     }
     else if (*fieldId == 0) {
-	objClass = (*env)->GetObjectClass(env, obj);
-	if (objClass == 0) {
-	    return NULL;
-	}
-	handleFid = *fieldId =
-	    (*env)->GetFieldID(env, objClass, handleName, "J");
+    objClass = (*env)->GetObjectClass(env, obj);
+    if (objClass == 0) {
+        return NULL;
+    }
+    handleFid = *fieldId =
+        (*env)->GetFieldID(env, objClass, handleName, "J");
     }
     else {
-	handleFid = *fieldId;
+    handleFid = *fieldId;
     }
 
     return (void*) (*env)->GetLongField(env, obj, handleFid);
@@ -170,35 +170,35 @@ void *getHandle(JNIEnv *env,
  *   zero        if failure
  */
 int setHandle(JNIEnv *env,
-	      jobject obj,
-	      const char *handleName,
-	      void *handle,
-	      jfieldID *fieldId)
+          jobject obj,
+          const char *handleName,
+          void *handle,
+          jfieldID *fieldId)
 {
     jclass objClass;
     jfieldID handleFid;
 
     /* Retrieve the field ID of the handle */
     if (fieldId == NULL) {
-	objClass = (*env)->GetObjectClass(env, obj);
-	if (objClass == 0) {
-	    return 0;
-	}
-	handleFid = (*env)->GetFieldID(env, objClass, handleName, "J");
+    objClass = (*env)->GetObjectClass(env, obj);
+    if (objClass == 0) {
+        return 0;
+    }
+    handleFid = (*env)->GetFieldID(env, objClass, handleName, "J");
     }
     else if (fieldId == 0) {
-	objClass = (*env)->GetObjectClass(env, obj);
-	if (objClass == 0) {
-	    return 0;
-	}
-	handleFid = *fieldId =
-	    (*env)->GetFieldID(env, objClass, handleName, "J");
+    objClass = (*env)->GetObjectClass(env, obj);
+    if (objClass == 0) {
+        return 0;
+    }
+    handleFid = *fieldId =
+        (*env)->GetFieldID(env, objClass, handleName, "J");
     }
     else {
-	handleFid = *fieldId;
+    handleFid = *fieldId;
     }
     if (handleFid == 0) {
-	return 0;
+    return 0;
     }
 
     (*env)->SetLongField(env, obj, handleFid, (jlong) handle);
@@ -229,34 +229,34 @@ int setHandle(JNIEnv *env,
  *   zero       if failed
  */
 int getIntFieldValue(JNIEnv *env,
-		     jobject obj,
-		     const char *fieldName,
-		     jfieldID *fieldID,
-		     jint *value)
+             jobject obj,
+             const char *fieldName,
+             jfieldID *fieldID,
+             jint *value)
 {
     jclass objClass = 0;
     jfieldID objFieldID = 0;
 
     if (fieldID == NULL) {
-	objClass = (*env)->GetObjectClass(env, obj);
-	if (objClass == 0) {
-	    return 0;
-	}
-	objFieldID = (*env)->GetFieldID(env, objClass, fieldName, "I");
+    objClass = (*env)->GetObjectClass(env, obj);
+    if (objClass == 0) {
+        return 0;
+    }
+    objFieldID = (*env)->GetFieldID(env, objClass, fieldName, "I");
     }
     else if (*fieldID == 0) {
-	objClass = (*env)->GetObjectClass(env, obj);
-	if (objClass == 0) {
-	    return 0;
-	}
-	objFieldID = *fieldID =
-	    (*env)->GetFieldID(env, objClass, fieldName, "I");
+    objClass = (*env)->GetObjectClass(env, obj);
+    if (objClass == 0) {
+        return 0;
+    }
+    objFieldID = *fieldID =
+        (*env)->GetFieldID(env, objClass, fieldName, "I");
     }
     else {
-	objFieldID = *fieldID;
+    objFieldID = *fieldID;
     }
     if (objFieldID == 0) {
-	return 0;
+    return 0;
     }
     *value = (*env)->GetIntField(env, obj, objFieldID);
     return 1;
@@ -292,25 +292,25 @@ int setIntFieldValue(JNIEnv *env,
     jfieldID objFieldID = 0;
 
     if (fieldID == NULL) {
-	objClass = (*env)->GetObjectClass(env, obj);
-	if (objClass == 0) {
-	    return 0;
-	}
-	objFieldID = (*env)->GetFieldID(env, objClass, fieldName, "I");
+    objClass = (*env)->GetObjectClass(env, obj);
+    if (objClass == 0) {
+        return 0;
+    }
+    objFieldID = (*env)->GetFieldID(env, objClass, fieldName, "I");
     }
     else if (*fieldID == 0) {
-	objClass = (*env)->GetObjectClass(env, obj);
-	if (objClass == 0) {
-	    return 0;
-	}
-	objFieldID = *fieldID =
-	    (*env)->GetFieldID(env, objClass, fieldName, "I");
+    objClass = (*env)->GetObjectClass(env, obj);
+    if (objClass == 0) {
+        return 0;
+    }
+    objFieldID = *fieldID =
+        (*env)->GetFieldID(env, objClass, fieldName, "I");
     }
     else {
-	objFieldID = *fieldID;
+    objFieldID = *fieldID;
     }
     if (objFieldID == 0) {
-	return 0;
+    return 0;
     }
     (*env)->SetIntField(env, obj, objFieldID, value);
     return 1;
@@ -338,34 +338,34 @@ int setIntFieldValue(JNIEnv *env,
  *   zero       if failed
  */
 int getByteFieldValue(JNIEnv *env,
-		      jobject obj,
-		      const char *fieldName,
-		      jfieldID *fieldID,
-		      jbyte *value)
+              jobject obj,
+              const char *fieldName,
+              jfieldID *fieldID,
+              jbyte *value)
 {
     jclass objClass = 0;
     jfieldID objFieldID = 0;
 
     if (fieldID == NULL) {
-	objClass = (*env)->GetObjectClass(env, obj);
-	if (objClass == 0) {
-	    return 0;
-	}
-	objFieldID = (*env)->GetFieldID(env, objClass, fieldName, "B");
+    objClass = (*env)->GetObjectClass(env, obj);
+    if (objClass == 0) {
+        return 0;
+    }
+    objFieldID = (*env)->GetFieldID(env, objClass, fieldName, "B");
     }
     else if (*fieldID == 0) {
-	objClass = (*env)->GetObjectClass(env, obj);
-	if (objClass == 0) {
-	    return 0;
-	}
-	objFieldID = *fieldID =
-	    (*env)->GetFieldID(env, objClass, fieldName, "B");
+    objClass = (*env)->GetObjectClass(env, obj);
+    if (objClass == 0) {
+        return 0;
+    }
+    objFieldID = *fieldID =
+        (*env)->GetFieldID(env, objClass, fieldName, "B");
     }
     else {
-	objFieldID = *fieldID;
+    objFieldID = *fieldID;
     }
     if (objFieldID == 0) {
-	return 0;
+    return 0;
     }
     *value = (*env)->GetByteField(env, obj, objFieldID);
     return 1;
@@ -393,34 +393,34 @@ int getByteFieldValue(JNIEnv *env,
  *   zero       if failed
  */
 int getShortFieldValue(JNIEnv *env,
-		       jobject obj,
-		       const char *fieldName,
-		       jfieldID *fieldID,
-		       jshort *value)
+               jobject obj,
+               const char *fieldName,
+               jfieldID *fieldID,
+               jshort *value)
 {
     jclass objClass = 0;
     jfieldID objFieldID = 0;
 
     if (fieldID == NULL) {
-	objClass = (*env)->GetObjectClass(env, obj);
-	if (objClass == 0) {
-	    return 0;
-	}
-	objFieldID = (*env)->GetFieldID(env, objClass, fieldName, "S");
+    objClass = (*env)->GetObjectClass(env, obj);
+    if (objClass == 0) {
+        return 0;
+    }
+    objFieldID = (*env)->GetFieldID(env, objClass, fieldName, "S");
     }
     else if (*fieldID == 0) {
-	objClass = (*env)->GetObjectClass(env, obj);
-	if (objClass == 0) {
-	    return 0;
-	}
-	objFieldID = *fieldID =
-	    (*env)->GetFieldID(env, objClass, fieldName, "S");
+    objClass = (*env)->GetObjectClass(env, obj);
+    if (objClass == 0) {
+        return 0;
+    }
+    objFieldID = *fieldID =
+        (*env)->GetFieldID(env, objClass, fieldName, "S");
     }
     else {
-	objFieldID = *fieldID;
+    objFieldID = *fieldID;
     }
     if (objFieldID == 0) {
-	return 0;
+    return 0;
     }
     *value = (*env)->GetShortField(env, obj, objFieldID);
     return 1;
@@ -457,26 +457,26 @@ char* getStringFieldValue(JNIEnv *env,
     char *stringCpy = NULL;
 
     if (fieldID == NULL) {
-	objClass = (*env)->GetObjectClass(env, obj);
-	if (objClass == 0) {
-	    return NULL;
-	}
-	objFieldID =
+    objClass = (*env)->GetObjectClass(env, obj);
+    if (objClass == 0) {
+        return NULL;
+    }
+    objFieldID =
             (*env)->GetFieldID(env, objClass, fieldName, "Ljava/lang/String;");
     }
     else if (*fieldID == 0) {
-	objClass = (*env)->GetObjectClass(env, obj);
-	if (objClass == 0) {
-	    return NULL;
-	}
-	objFieldID = *fieldID =
-	    (*env)->GetFieldID(env, objClass, fieldName, "Ljava/lang/String;");
+    objClass = (*env)->GetObjectClass(env, obj);
+    if (objClass == 0) {
+        return NULL;
+    }
+    objFieldID = *fieldID =
+        (*env)->GetFieldID(env, objClass, fieldName, "Ljava/lang/String;");
     }
     else {
-	objFieldID = *fieldID;
+    objFieldID = *fieldID;
     }
     if (objFieldID == 0) {
-	return NULL;
+    return NULL;
     }
     stringObj = (*env)->GetObjectField(env, obj, objFieldID);
     if (stringObj == NULL) {
@@ -520,26 +520,26 @@ unsigned char* getByteArrayFieldValue(JNIEnv *env,
     char *byteArrayCpy = NULL;
 
     if (fieldID == NULL) {
-	objClass = (*env)->GetObjectClass(env, obj);
-	if (objClass == 0) {
-	    return NULL;
-	}
-	objFieldID =
+    objClass = (*env)->GetObjectClass(env, obj);
+    if (objClass == 0) {
+        return NULL;
+    }
+    objFieldID =
             (*env)->GetFieldID(env, objClass, fieldName, "[B");
     }
     else if (*fieldID == 0) {
-	objClass = (*env)->GetObjectClass(env, obj);
-	if (objClass == 0) {
-	    return NULL;
-	}
-	objFieldID = *fieldID =
-	    (*env)->GetFieldID(env, objClass, fieldName, "[B");
+    objClass = (*env)->GetObjectClass(env, obj);
+    if (objClass == 0) {
+        return NULL;
+    }
+    objFieldID = *fieldID =
+        (*env)->GetFieldID(env, objClass, fieldName, "[B");
     }
     else {
-	objFieldID = *fieldID;
+    objFieldID = *fieldID;
     }
     if (objFieldID == 0) {
-	return NULL;
+    return NULL;
     }
 
     /* Get the array object */
@@ -569,13 +569,12 @@ unsigned char* getByteArrayFieldValue(JNIEnv *env,
 
 
 /*
- * From a java.awt.Rectangle object, construct a ImageMagick
+ * From a android.graphics.Rect object, construct a ImageMagick
  * RectangleInfo, as passed in from the parameter.
  *
  * Input:
  *   env        Java VM environment
- *   jRect      an instance of java.awt.Rectangle
- *
+ *   jRect      an instance of android.graphics.Rect
  * Output:
  *   iRect      to be initilised by values in jRect
  *
@@ -585,19 +584,19 @@ unsigned char* getByteArrayFieldValue(JNIEnv *env,
  */
 int getRectangle(JNIEnv *env, jobject jRect, RectangleInfo *iRect)
 {
-	jint width, height, x, y;
+    jint left, top, right, bottom;
     int retVal =
-		getIntFieldValue(env, jRect, "width", NULL, (jint *) &width) &&
-		getIntFieldValue(env, jRect, "height", NULL, (jint *) &height) &&
-		getIntFieldValue(env, jRect, "x", NULL, (jint *) &x) &&
-		getIntFieldValue(env, jRect, "y", NULL, (jint *) &y);
-	if (retVal) {
-		iRect->width = width;
-		iRect->height = height;
-		iRect->x = x;
-		iRect->y = y;
-	}
-	return retVal;
+            getIntFieldValue(env, jRect, "left", NULL, (jint *) &left) &&
+        getIntFieldValue(env, jRect, "top", NULL, (jint *) &top) &&
+        getIntFieldValue(env, jRect, "right", NULL, (jint *) &right) &&
+        getIntFieldValue(env, jRect, "bottom", NULL, (jint *) &bottom);
+    if (retVal) {
+        iRect->width = right - left;
+        iRect->height = bottom - top;
+        iRect->x = left;
+        iRect->y = top;
+    }
+    return retVal;
 }
 
 
@@ -618,18 +617,18 @@ int getRectangle(JNIEnv *env, jobject jRect, RectangleInfo *iRect)
  *   zero       if failed
  */
 int getPixelPacket(JNIEnv *env,
-		   jobject jPixelPacket,
-		   PixelPacket *iPixelPacket)
+           jobject jPixelPacket,
+           PixelPacket *iPixelPacket)
 {
   jint red, green, blue, opacity;
   int successful =
-	getIntFieldValue(env, jPixelPacket, "red", NULL,
+    getIntFieldValue(env, jPixelPacket, "red", NULL,
                          &red) &&
-	getIntFieldValue(env, jPixelPacket, "green", NULL,
+    getIntFieldValue(env, jPixelPacket, "green", NULL,
                          &green) &&
         getIntFieldValue(env, jPixelPacket, "blue", NULL,
                          &blue) &&
-	getIntFieldValue(env, jPixelPacket, "opacity", NULL,
+    getIntFieldValue(env, jPixelPacket, "opacity", NULL,
                          &opacity);
   if (!successful) {
       return successful;
@@ -667,25 +666,25 @@ jobject newImageObject(JNIEnv *env, Image* image)
 
     magickImageClass = (*env)->FindClass(env, "magick/MagickImage");
     if (magickImageClass == 0) {
-	return NULL;
+    return NULL;
     }
 
     consMethodID = (*env)->GetMethodID(env, magickImageClass,
-				       "<init>", "()V");
+                       "<init>", "()V");
     if (consMethodID == 0) {
-	return NULL;
+    return NULL;
     }
 
     newObj = (*env)->NewObject(env, magickImageClass, consMethodID);
     if (newObj == NULL) {
-	return NULL;
+    return NULL;
     }
 
     if (!setHandle(env, newObj, "magickImageHandle", (void*) image, NULL)) {
 #ifdef DIAGNOSTIC
-	fprintf(stderr, "newImageObject: Unable to set handle\n");
+    fprintf(stderr, "newImageObject: Unable to set handle\n");
 #endif
-	return NULL;
+    return NULL;
     }
 
     return newObj;

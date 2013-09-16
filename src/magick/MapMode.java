@@ -7,8 +7,8 @@ package magick;
  */
 public interface MapMode {
 
-    public final int ReadMode = 0;
-    public final int WriteMode = 1;
-    public final int IOMode = 2;
+	public final int ReadMode = 0;
+	public final int WriteMode = 1;
+	public final int IOMode = 2;
 
 }

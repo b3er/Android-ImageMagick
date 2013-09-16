@@ -17,6 +17,9 @@ dependencies {
     compile 'tiny:tiny.log:1.0.0-SNAPSHOT'
 }
 
+ndk {
+        make()
+}
 
 
 

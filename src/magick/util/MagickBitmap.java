@@ -1,15 +1,14 @@
 package magick.util;
 
-import java.awt.Dimension;
-import java.io.ByteArrayOutputStream;
-import java.nio.ByteBuffer;
-
+import android.graphics.Bitmap;
+import android.graphics.Bitmap.CompressFormat;
 import magick.ImageInfo;
 import magick.MagickException;
 import magick.MagickImage;
-import android.graphics.Bitmap;
-import android.graphics.Bitmap.CompressFormat;
-import android.os.Handler;
+
+import java.io.ByteArrayOutputStream;
+import java.nio.ByteBuffer;
+
 public class MagickBitmap {
 
 	public static Bitmap ToBitmap(MagickImage img) throws MagickException {
@@ -25,10 +24,9 @@ public class MagickBitmap {
 		//int colors[] = toIntArray(pixels);
 		if (res) {
 			return Bitmap.createBitmap(colors, width, height, Bitmap.Config.ARGB_8888);
-		}
-		else return null;
+		} else return null;
 	}
-	
+
 	public static MagickImage fromBitmap(Bitmap bmp) throws MagickException {
 		/*
 		int width = bmp.getWidth();
@@ -43,30 +41,30 @@ public class MagickBitmap {
 		MagickImage image = new MagickImage(info, bos.toByteArray());
 		return image;
 	}
-	
-	public static int[] toIntArray(byte[] barr) { 
-        //Pad the size to multiple of 4 
-        int size = (barr.length / 4) + ((barr.length % 4 == 0) ? 0 : 1);      
 
-        ByteBuffer bb = ByteBuffer.allocate(size *4); 
-        bb.put(barr); 
+	public static int[] toIntArray(byte[] barr) {
+		//Pad the size to multiple of 4
+		int size = (barr.length / 4) + ((barr.length % 4 == 0) ? 0 : 1);
 
-        //Java uses Big Endian. Network program uses Little Endian. 
-        //bb.order(ByteOrder.LITTLE_ENDIAN); 
-       
+		ByteBuffer bb = ByteBuffer.allocate(size * 4);
+		bb.put(barr);
 
-        int[] result = new int[size]; 
-        bb.rewind(); 
-        while (bb.remaining() > 0) { 
-            result[bb.position()/4] =bb.getInt(); 
-        } 
+		//Java uses Big Endian. Network program uses Little Endian.
+		//bb.order(ByteOrder.LITTLE_ENDIAN);
 
-        return result; 
+
+		int[] result = new int[size];
+		bb.rewind();
+		while (bb.remaining() > 0) {
+			result[bb.position() / 4] = bb.getInt();
+		}
+
+		return result;
 	}
-	
+
 	public native static int[] bytesToInts(byte[] bytes);
-	
+
 	static {
-		System.loadLibrary("android-magick");
+		System.loadLibrary("ImageMagick");
 	}
 }

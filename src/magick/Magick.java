@@ -1,8 +1,7 @@
 package magick;
 
 
-import java.awt.Rectangle;
-
+import android.graphics.Rect;
 
 /**
  * The sole purchase of this class is to cause the native
@@ -14,8 +13,8 @@ import java.awt.Rectangle;
  */
 public class Magick {
 
-    static {
-        /*String clprop = System.getProperty("jmagick.systemclassloader");
+	static {
+	    /*String clprop = System.getProperty("jmagick.systemclassloader");
         if (clprop == null || clprop.equalsIgnoreCase("yes")) {
             try {
                 ClassLoader.getSystemClassLoader()
@@ -35,33 +34,35 @@ public class Magick {
             }
         }
         else {
-            System.loadLibrary("JMagick");
+            System.loadLibrary("JMagic");
         }*/
-    	System.loadLibrary("android-magick");
-        init();
-    }
+
+		System.loadLibrary("ImageMagick");
+		init();
+	}
 
 
-    /**
-     * Initializes the ImageMagic system
-     */
-    private static native void init();
+	/**
+	 * Initializes the ImageMagic system
+	 */
+	private static native void init();
 
 
-    /**
-     * Parses a geometry specification and returns the
-     * width, height, x, and y values in the rectangle.
-     * It also returns flags that indicates which of the
-     * four values (width, height, xoffset, yoffset) were
-     * located in the string, and whether the x and y values
-     * are negative.  In addition, there are flags to report
-     * any meta characters (%, !, <, and >).
-     * @param geometry String containing the geometry specifications
-     * @param rect The rectangle of values x, y, width and height
-     * @return bitmask indicating the values in the geometry string
-     * @see magick.GeometryFlags
-     */
-    public static native int parseImageGeometry(String geometry,
-                                                Rectangle rect);
+	/**
+	 * Parses a geometry specification and returns the
+	 * width, height, x, and y values in the rectangle.
+	 * It also returns flags that indicates which of the
+	 * four values (width, height, xoffset, yoffset) were
+	 * located in the string, and whether the x and y values
+	 * are negative.  In addition, there are flags to report
+	 * any meta characters (%, !, <, and >).
+	 *
+	 * @param geometry String containing the geometry specifications
+	 * @param rect     The rectangle of values x, y, width and height
+	 * @return bitmask indicating the values in the geometry string
+	 * @see magick.GeometryFlags
+	 */
+	public static native int parseImageGeometry(String geometry,
+	                                            Rect rect);
 
 }

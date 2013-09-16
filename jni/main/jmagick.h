@@ -22,8 +22,8 @@ void throwMagickException(JNIEnv *env, const char *mesg);
  *   exception  points to a ImageMagick ExceptionInfo structure
  */
 void throwMagickApiException(JNIEnv *env,
-			     const char *mesg,
-			     const ExceptionInfo *exception);
+                 const char *mesg,
+                 const ExceptionInfo *exception);
 
 /*
  * Convenience function to retreive a handle from an object.
@@ -38,9 +38,9 @@ void throwMagickApiException(JNIEnv *env,
  *   fieldId     if non-null, will contain field ID of the handle on output.
  */
 void *getHandle(JNIEnv *env,
-		jobject obj,
-		const char *handleName,
-		jfieldID *fieldId);
+        jobject obj,
+        const char *handleName,
+        jfieldID *fieldId);
 
 
 /*
@@ -60,10 +60,10 @@ void *getHandle(JNIEnv *env,
  *   zero        if failure
  */
 int setHandle(JNIEnv *env,
-	      jobject obj,
-	      const char *handleName,
-	      void *handle,
-	      jfieldID *fieldId);
+          jobject obj,
+          const char *handleName,
+          void *handle,
+          jfieldID *fieldId);
 
 
 /*
@@ -85,10 +85,10 @@ int setHandle(JNIEnv *env,
  *   zero       if failed
  */
 int getIntFieldValue(JNIEnv *env,
-		     jobject obj,
-		     const char *fieldName,
-		     jfieldID *fieldID,
-		     jint *value);
+             jobject obj,
+             const char *fieldName,
+             jfieldID *fieldID,
+             jint *value);
 
 /*
  * Store the int value of the specified field.
@@ -114,12 +114,12 @@ int setIntFieldValue(JNIEnv *env,
                      jint value);
 
 /*
- * From a java.awt.Rectangle object, construct a ImageMagick
+ * From a android.graphics.Rect object, construct a ImageMagick
  * RectangleInfo, as passed in from the parameter.
  *
  * Input:
  *   env        Java VM environment
- *   jRect      an instance of java.awt.Rectangle
+ *   jRect      an instance of android.graphics.Rect
  *
  * Output:
  *   iRect      to be initilised by values in jRect
@@ -147,8 +147,8 @@ int getRectangle(JNIEnv *env, jobject jRect, RectangleInfo *iRect);
  *   zero       if failed
  */
 int getPixelPacket(JNIEnv *env,
-		   jobject jPixelPacket,
-		   PixelPacket *iPixelPacket);
+           jobject jPixelPacket,
+           PixelPacket *iPixelPacket);
 
 /*
  * Construct a new Java magick.MagickImage object and set the
@@ -224,8 +224,8 @@ JNIEXPORT void JNICALL funcName                                               \
                                                                               \
     info = (handleType *) getHandle(env, self, handleName, NULL);             \
     if (info == NULL) {                                                       \
-	throwMagickException(env, "Unable to retrieve handle");               \
-	return;                                                               \
+    throwMagickException(env, "Unable to retrieve handle");               \
+    return;                                                               \
     }                                                                         \
                                                                               \
     info->fieldName = value;                                                  \
@@ -244,8 +244,8 @@ JNIEXPORT fieldType JNICALL funcName                                          \
                                                                               \
     info = (handleType *) getHandle(env, self, handleName, NULL);             \
     if (info == NULL) {                                                       \
-	throwMagickException(env, "Unable to retrieve handle");               \
-	return (fieldType) 0;                                                 \
+    throwMagickException(env, "Unable to retrieve handle");               \
+    return (fieldType) 0;                                                 \
     }                                                                         \
                                                                               \
     return info->fieldName;                                                   \
@@ -327,23 +327,23 @@ JNIEXPORT void JNICALL funcName                                               \
                                                                               \
     info = (handleType *) getHandle(env, self, handleName, NULL);             \
     if (info == NULL) {                                                       \
-	throwMagickException(env, "Unable to retrieve handle");               \
-	return;                                                               \
+    throwMagickException(env, "Unable to retrieve handle");               \
+    return;                                                               \
     }                                                                         \
                                                                               \
     if (info->fieldName != NULL) {                                            \
-	RelinquishMagickMemory((void**) &info->fieldName);                            \
-	info->fieldName = NULL;                                               \
+    RelinquishMagickMemory((void**) &info->fieldName);                            \
+    info->fieldName = NULL;                                               \
     }                                                                         \
                                                                               \
     cstr = (*env)->GetStringUTFChars(env, value, 0);                          \
     if (cstr == NULL) {                                                       \
-	throwMagickException(env, "Unable to retrieve Java string chars");    \
-	return;                                                               \
+    throwMagickException(env, "Unable to retrieve Java string chars");    \
+    return;                                                               \
     }                                                                         \
     info->fieldName = (char *) AcquireString(cstr);                           \
     if (info->fieldName == NULL) {                                            \
-	throwMagickException(env, "Unable to allocate memory");               \
+    throwMagickException(env, "Unable to allocate memory");               \
     }                                                                         \
     (*env)->ReleaseStringUTFChars(env, value, cstr);                          \
 }
@@ -361,18 +361,18 @@ JNIEXPORT jstring JNICALL funcName                                            \
                                                                               \
     info = (handleType *) getHandle(env, self, handleName, NULL);             \
     if (info == NULL) {                                                       \
-	throwMagickException(env, "Unable to retrieve handle");               \
-	return NULL;                                                          \
+    throwMagickException(env, "Unable to retrieve handle");               \
+    return NULL;                                                          \
     }                                                                         \
                                                                               \
     if (info->fieldName == NULL) {                                            \
-	return NULL;                                                          \
+    return NULL;                                                          \
     }                                                                         \
                                                                               \
     jstr = (*env)->NewStringUTF(env, info->fieldName);                        \
     if (jstr == NULL) {                                                       \
-	throwMagickException(env, "Unable to construct new string");          \
-	return NULL;                                                          \
+    throwMagickException(env, "Unable to construct new string");          \
+    return NULL;                                                          \
     }                                                                         \
                                                                               \
     return jstr;                                                              \
@@ -390,13 +390,13 @@ JNIEXPORT void JNICALL funcName                                               \
                                                                               \
     info = (handleType *) getHandle(env, self, handleName, NULL);             \
     if (info == NULL) {                                                       \
-	throwMagickException(env, "Unable to retrieve handle");               \
-	return;                                                               \
+    throwMagickException(env, "Unable to retrieve handle");               \
+    return;                                                               \
     }                                                                         \
                                                                               \
     if (!getPixelPacket(env, jPixelPacket, &info->fieldName)) {               \
-	throwMagickException(env, "Unable to set PixelPacket");               \
-	return;                                                               \
+    throwMagickException(env, "Unable to set PixelPacket");               \
+    return;                                                               \
     }                                                                         \
 }
 
@@ -416,32 +416,32 @@ JNIEXPORT jobject JNICALL funcName                                            \
                                                                               \
     info = (handleType *) getHandle(env, self, handleName, NULL);             \
     if (info == NULL) {                                                       \
-	throwMagickException(env, "Unable to retrieve handle");               \
-	return NULL;                                                          \
+    throwMagickException(env, "Unable to retrieve handle");               \
+    return NULL;                                                          \
     }                                                                         \
                                                                               \
     pixelPacketClass = (*env)->FindClass(env, "magick/PixelPacket");          \
     if (pixelPacketClass == 0) {                                              \
-	throwMagickException(env,                                             \
-			     "Unable to locate class magick.PixelPacket");    \
-	return NULL;                                                          \
+    throwMagickException(env,                                             \
+                 "Unable to locate class magick.PixelPacket");    \
+    return NULL;                                                          \
     }                                                                         \
                                                                               \
     consMethodID = (*env)->GetMethodID(env, pixelPacketClass,                 \
-				       "<init>", "(IIII)V");                  \
+                       "<init>", "(IIII)V");                  \
     if (consMethodID == 0) {                                                  \
-	throwMagickException(env, "Unable to construct magick.PixelPacket");  \
-	return NULL;                                                          \
+    throwMagickException(env, "Unable to construct magick.PixelPacket");  \
+    return NULL;                                                          \
     }                                                                         \
                                                                               \
     jPixelPacket = (*env)->NewObject(env, pixelPacketClass, consMethodID,     \
-		                     (jint) info->fieldName.red,              \
-		                     (jint) info->fieldName.green,            \
-		                     (jint) info->fieldName.blue,             \
-		                     (jint) info->fieldName.opacity);         \
+                             (jint) info->fieldName.red,              \
+                             (jint) info->fieldName.green,            \
+                             (jint) info->fieldName.blue,             \
+                             (jint) info->fieldName.opacity);         \
     if (jPixelPacket == NULL) {                                               \
-	throwMagickException(env, "Unable to construct magick.PixelPacket");  \
-	return NULL;                                                          \
+    throwMagickException(env, "Unable to construct magick.PixelPacket");  \
+    return NULL;                                                          \
     }                                                                         \
                                                                               \
     return jPixelPacket;                                                      \
