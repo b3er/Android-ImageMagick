@@ -33,5 +33,6 @@ LOCAL_STATIC_LIBRARIES :=  MagickCore filters coders tiff filters png jpeg freet
 LOCAL_SHARED_LIBRARIES +=  MagickCore filters coders tiff filters png jpeg freetype
 
 LOCAL_LDLIBS += -lz -llog
+LOCAL_ARM_MODE  := arm
 
 include $(BUILD_SHARED_LIBRARY)

@@ -129,6 +129,3 @@ LOCAL_STATIC_LIBRARIES += MagickCore tiff jpeg freetype png
 LOCAL_SHARED_LIBRARIES += MagickCore tiff jpeg freetype png
 
 include $(BUILD_STATIC_LIBRARY)
-#include $(BUILD_SHARED_LIBRARY)
-#$(call import-module,libjpeg)
-#$(call import-module,tiff)
