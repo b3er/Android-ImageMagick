@@ -63,7 +63,7 @@ cscope_file.*
 cppcheck.*
 *.iml
 build.properties*.iml
-./*.config
-./*.creator*
-./*.files
-./*.includes
+/ImageMagick.config
+/ImageMagick.creator*
+/ImageMagick.files
+/ImageMagick.includes
