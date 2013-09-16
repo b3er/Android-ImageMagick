@@ -122,10 +122,12 @@ ycbcr.c \
 yuv.c \
 
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/.. $(LOCAL_PATH)/../../freetype/include $(LOCAL_PATH)/../../tiff/libtiff $(LOCAL_PATH)/../../libjpeg $(LOCAL_PATH)/../../libpng
-LOCAL_CFLAGS += -DHAVE_CONFIG_H
+LOCAL_CFLAGS += -O3 -DHAVE_CONFIG_H
 
 
 LOCAL_STATIC_LIBRARIES += MagickCore tiff jpeg freetype png
 LOCAL_SHARED_LIBRARIES += MagickCore tiff jpeg freetype png
+
+LOCAL_ARM_MODE := arm
 
 include $(BUILD_STATIC_LIBRARY)
