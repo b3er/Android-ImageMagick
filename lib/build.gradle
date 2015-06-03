@@ -1,8 +1,7 @@
 apply plugin: 'com.android.library'
-apply plugin: 'maven'
 android {
 	compileSdkVersion 22
-	buildToolsVersion "22"
+	buildToolsVersion "22.0.1"
 
 	defaultConfig {
 		minSdkVersion 8
@@ -27,20 +26,23 @@ android {
 			proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
 		}
 	}
-}
-task customCompileNdk(type:Exec) {
-	commandLine 'ndk-build', '-j8'
-	workingDir 'src/main'
+    task customCompileNdk(type:Exec) {
+        commandLine 'ndk-build', '-j8'
+        workingDir 'src/main/jni'
+    }
+
+    task customCleanNdk(type:Exec) {
+        commandLine 'ndk-build', 'clean'
+        workingDir 'src/main/jni'
+    }
+    libraryVariants.all { variant ->
+        variant.javaCompile.dependsOn customCompileNdk
+    }
+    clean.dependsOn += customCleanNdk
 }
 
-task customCleanNdk(type:Exec) {
-	commandLine 'ndk-build', 'clean'
-	workingDir 'src/main'
-}
 
-preBuild.dependsOn += customCompileNdk
-clean.dependsOn += customCleanNdk
 dependencies {
-	compile 'tiny:tiny.misc:1.0.0-SNAPSHOT:@aar'
+	compile 'tiny:tiny.misc:1.0.0-SNAPSHOT'
 	compile fileTree(include: ['*.jar'], dir: 'libs')
 }

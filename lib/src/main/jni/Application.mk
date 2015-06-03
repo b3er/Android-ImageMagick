@@ -1,8 +1,4 @@
-
-# Uncomment this if you're using STL in your project
-# See CPLUSPLUS-SUPPORT.html in the NDK documentation for more information
-APP_ABI := all
-APP_STL := gnustl_static
+APP_ABI := all32
 APP_PLATFORM := android-8
-
-
+APP_OPTIM := release
+#APP_CFLAGS := -O3
