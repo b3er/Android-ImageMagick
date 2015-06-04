@@ -16,7 +16,7 @@ void throwMagickException(JNIEnv *env, const char *mesg)
 {
     jclass magickExceptionClass;
 
-    magickExceptionClass = (*env)->FindClass(env, "magick/MagickException");
+    magickExceptionClass = (*env)->FindClass(env, "org.imagemagick.MagickException");
     if (magickExceptionClass == 0) {
 	fprintf(stderr, "Cannot find MagickException class\n");
 	return;
@@ -45,7 +45,7 @@ void throwMagickApiException(JNIEnv *env,
 
     /* Find the class ID */
     magickApiExceptionClass =
-	(*env)->FindClass(env, "magick/MagickApiException");
+	(*env)->FindClass(env, "org.imagemagick.MagickApiException");
     if (magickApiExceptionClass == 0) {
 	fprintf(stderr, "Cannot find MagickApiException class\n");
 	return;
@@ -665,7 +665,7 @@ jobject newImageObject(JNIEnv *env, Image* image)
     jmethodID consMethodID = 0;
     jobject newObj;
 
-    magickImageClass = (*env)->FindClass(env, "magick/MagickImage");
+    magickImageClass = (*env)->FindClass(env, "org.imagemagick.MagickImage");
     if (magickImageClass == 0) {
 	return NULL;
     }
@@ -775,7 +775,7 @@ jobject getProfileInfo(JNIEnv *env, ProfileInfo *profileInfo)
     unsigned char *byteElements;
 
     /* Get the ProfileInfo class ID */
-    profileInfoClass = (*env)->FindClass(env, "magick/ProfileInfo");
+    profileInfoClass = (*env)->FindClass(env, "org.imagemagick.ProfileInfo");
     if (profileInfoClass == 0) {
         throwMagickException(env, "Unable to locate class "
                                    "magick.ProfileInfo");

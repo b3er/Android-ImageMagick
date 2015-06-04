@@ -14,7 +14,7 @@
  * Method:    init
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_magick_QuantizeInfo_init
+JNIEXPORT void JNICALL Java_org_imagemagick_QuantizeInfo_init
   (JNIEnv *env, jobject self)
 {
     QuantizeInfo *quantizeInfo = NULL;
@@ -42,7 +42,7 @@ JNIEXPORT void JNICALL Java_magick_QuantizeInfo_init
  * Method:    destroyQuantizeInfo
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_magick_QuantizeInfo_destroyQuantizeInfo
+JNIEXPORT void JNICALL Java_org_imagemagick_QuantizeInfo_destroyQuantizeInfo
   (JNIEnv *env, jobject self)
 {
     QuantizeInfo *quantizeInfo = NULL;
@@ -64,7 +64,7 @@ JNIEXPORT void JNICALL Java_magick_QuantizeInfo_destroyQuantizeInfo
  * Method:    setNumberColors
  * Signature: (I)V
  */
-setIntMethod(Java_magick_QuantizeInfo_setNumberColors,
+setIntMethod(Java_org_imagemagick_QuantizeInfo_setNumberColors,
 	     number_colors,
 	     "quantizeInfoHandle",
 	     QuantizeInfo)
@@ -74,7 +74,7 @@ setIntMethod(Java_magick_QuantizeInfo_setNumberColors,
  * Method:    getNumberColors
  * Signature: ()I
  */
-getIntMethod(Java_magick_QuantizeInfo_getNumberColors,
+getIntMethod(Java_org_imagemagick_QuantizeInfo_getNumberColors,
 	     number_colors,
 	     "quantizeInfoHandle",
 	     QuantizeInfo)
@@ -84,7 +84,7 @@ getIntMethod(Java_magick_QuantizeInfo_getNumberColors,
  * Method:    setTreeDepth
  * Signature: (I)V
  */
-setIntMethod(Java_magick_QuantizeInfo_setTreeDepth,
+setIntMethod(Java_org_imagemagick_QuantizeInfo_setTreeDepth,
 	     tree_depth,
 	     "quantizeInfoHandle",
 	     QuantizeInfo)
@@ -95,7 +95,7 @@ setIntMethod(Java_magick_QuantizeInfo_setTreeDepth,
  * Method:    getTreeDepth
  * Signature: ()I
  */
-getIntMethod(Java_magick_QuantizeInfo_getTreeDepth,
+getIntMethod(Java_org_imagemagick_QuantizeInfo_getTreeDepth,
 	     tree_depth,
 	     "quantizeInfoHandle",
 	     QuantizeInfo)
@@ -106,7 +106,7 @@ getIntMethod(Java_magick_QuantizeInfo_getTreeDepth,
  * Method:    setDither
  * Signature: (I)V
  */
-setIntMethod(Java_magick_QuantizeInfo_setDither,
+setIntMethod(Java_org_imagemagick_QuantizeInfo_setDither,
 	     dither,
 	     "quantizeInfoHandle",
 	     QuantizeInfo)
@@ -117,7 +117,7 @@ setIntMethod(Java_magick_QuantizeInfo_setDither,
  * Method:    getDither
  * Signature: ()I
  */
-getIntMethod(Java_magick_QuantizeInfo_getDither,
+getIntMethod(Java_org_imagemagick_QuantizeInfo_getDither,
 	     dither,
 	     "quantizeInfoHandle",
 	     QuantizeInfo)
@@ -128,7 +128,7 @@ getIntMethod(Java_magick_QuantizeInfo_getDither,
  * Method:    setColorspace
  * Signature: (I)V
  */
-setIntMethod(Java_magick_QuantizeInfo_setColorspace,
+setIntMethod(Java_org_imagemagick_QuantizeInfo_setColorspace,
 	     colorspace,
 	     "quantizeInfoHandle",
 	     QuantizeInfo)
@@ -139,7 +139,7 @@ setIntMethod(Java_magick_QuantizeInfo_setColorspace,
  * Method:    getColorspace
  * Signature: ()I
  */
-getIntMethod(Java_magick_QuantizeInfo_getColorspace,
+getIntMethod(Java_org_imagemagick_QuantizeInfo_getColorspace,
 	     colorspace,
 	     "quantizeInfoHandle",
 	     QuantizeInfo)
@@ -151,7 +151,7 @@ getIntMethod(Java_magick_QuantizeInfo_getColorspace,
  * Method:    setMeasureError
  * Signature: (I)V
  */
-setIntMethod(Java_magick_QuantizeInfo_setMeasureError,
+setIntMethod(Java_org_imagemagick_QuantizeInfo_setMeasureError,
 	     measure_error,
 	     "quantizeInfoHandle",
 	     QuantizeInfo)
@@ -162,7 +162,7 @@ setIntMethod(Java_magick_QuantizeInfo_setMeasureError,
  * Method:    getMeasureError
  * Signature: ()I
  */
-getIntMethod(Java_magick_QuantizeInfo_getMeasureError,
+getIntMethod(Java_org_imagemagick_QuantizeInfo_getMeasureError,
 	     measure_error,
 	     "quantizeInfoHandle",
 	     QuantizeInfo)

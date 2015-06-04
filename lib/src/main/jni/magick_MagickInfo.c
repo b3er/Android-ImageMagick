@@ -14,7 +14,7 @@
  * Method:    init
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_magick_MagickInfo_init
+JNIEXPORT void JNICALL Java_org_imagemagick_MagickInfo_init
   (JNIEnv *env, jobject self, jstring modname)
 {
     MagickInfo *magickInfo = NULL;
@@ -52,7 +52,7 @@ JNIEXPORT void JNICALL Java_magick_MagickInfo_init
  * Method:    destroyMagickInfo
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_magick_MagickInfo_destroyMagickInfo
+JNIEXPORT void JNICALL Java_org_imagemagick_MagickInfo_destroyMagickInfo
   (JNIEnv *env, jobject self)
 {
     MagickInfo *magickInfo = NULL;
@@ -73,7 +73,7 @@ JNIEXPORT void JNICALL Java_magick_MagickInfo_destroyMagickInfo
  * Method:    getDescription
  * Signature: ()Ljava/lang/String;
  */
-getStringMethod(Java_magick_MagickInfo_getDescription,
+getStringMethod(Java_org_imagemagick_MagickInfo_getDescription,
 		description,
 		"magickInfoHandle",
 		MagickInfo)

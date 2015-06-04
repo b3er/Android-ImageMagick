@@ -15,8 +15,13 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
--keep interface magick.** {*;}
--keepnames interface magick.** {*;}
--keepclasseswithmembernames interface magick.** {*;}
--keepclassmembernames interface magick.** {*;}
--keepclasseswithmembers interface magick.** {*;}
+-keep interface org.imagemagick.** {*;}
+-keepnames interface org.imagemagick.** {*;}
+-keepclasseswithmembernames interface org.imagemagick.** {*;}
+-keepclassmembernames interface org.imagemagick.** {*;}
+-keepclasseswithmembers interface org.imagemagick.** {*;}
+-keep class org.imagemagick.** {*;}
+-keepnames class org.imagemagick.** {*;}
+-keepclasseswithmembernames class org.imagemagick.** {*;}
+-keepclassmembernames class org.imagemagick.** {*;}
+-keepclasseswithmembers class org.imagemagick.** {*;}

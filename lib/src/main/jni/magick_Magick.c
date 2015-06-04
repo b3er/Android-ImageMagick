@@ -12,7 +12,7 @@
  * Method:    parseImageGeometry
  * Signature: (Ljava/lang/String;Ljava/awt/Rectangle;)I
  */
-JNIEXPORT void JNICALL Java_magick_Magick_init
+JNIEXPORT void JNICALL Java_org_imagemagick_Magick_init
   (JNIEnv *env, jclass magickClass)
 {
 	MagickCoreGenesis(NULL, MagickFalse);
@@ -23,7 +23,7 @@ JNIEXPORT void JNICALL Java_magick_Magick_init
  * Method:    parseImageGeometry
  * Signature: (Ljava/lang/String;Ljava/awt/Rectangle;)I
  */
-JNIEXPORT jint JNICALL Java_magick_Magick_parseImageGeometry
+JNIEXPORT jint JNICALL Java_org_imagemagick_Magick_parseImageGeometry
   (JNIEnv *env, jclass magickClass, jstring geometry, jobject rect)
 {
     unsigned long x, y, width, height;

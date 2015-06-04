@@ -18,7 +18,7 @@
  * Method:    init
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_magick_ImageInfo_init
+JNIEXPORT void JNICALL Java_org_imagemagick_ImageInfo_init
     (JNIEnv *env, jobject obj)
 {
     ImageInfo *imageInfo = NULL;
@@ -43,7 +43,7 @@ JNIEXPORT void JNICALL Java_magick_ImageInfo_init
  * Method:    setImageOption
  * Signature: (Ljava/lang/String;Ljava/lang/String;)V
  */
-JNIEXPORT void JNICALL Java_magick_ImageInfo_setImageOption
+JNIEXPORT void JNICALL Java_org_imagemagick_ImageInfo_setImageOption
     (JNIEnv *env, jobject self, jstring option, jstring value)
 {                                                                             
     ImageInfo *info = NULL;
@@ -80,7 +80,7 @@ JNIEXPORT void JNICALL Java_magick_ImageInfo_setImageOption
  * Method:    setFileName
  * Signature: (Ljava/lang/String;)V
  */
-JNIEXPORT void JNICALL Java_magick_ImageInfo_setFileName
+JNIEXPORT void JNICALL Java_org_imagemagick_ImageInfo_setFileName
     (JNIEnv *env, jobject obj, jstring fileName)
 {
     ImageInfo *imageInfo = NULL;
@@ -116,7 +116,7 @@ JNIEXPORT void JNICALL Java_magick_ImageInfo_setFileName
  * Method:    getFileName
  * Signature: ()Ljava/lang/String;
  */
-JNIEXPORT jstring JNICALL Java_magick_ImageInfo_getFileName
+JNIEXPORT jstring JNICALL Java_org_imagemagick_ImageInfo_getFileName
     (JNIEnv *env, jobject obj)
 {
     ImageInfo *imageInfo = NULL;
@@ -138,7 +138,7 @@ JNIEXPORT jstring JNICALL Java_magick_ImageInfo_getFileName
  * Method:    setSubimage
  * Signature: (I)V
  */
-setIntMethod(Java_magick_ImageInfo_setSubimage,
+setIntMethod(Java_org_imagemagick_ImageInfo_setSubimage,
 	     subimage,
 	     "imageInfoHandle",
 	     ImageInfo)
@@ -151,7 +151,7 @@ setIntMethod(Java_magick_ImageInfo_setSubimage,
  * Method:    getSubimage
  * Signature: ()I
  */
-getIntMethod(Java_magick_ImageInfo_getSubimage,
+getIntMethod(Java_org_imagemagick_ImageInfo_getSubimage,
 	     subimage,
 	     "imageInfoHandle",
 	     ImageInfo)
@@ -164,7 +164,7 @@ getIntMethod(Java_magick_ImageInfo_getSubimage,
  * Method:    setSubrange
  * Signature: (I)V
  */
-setIntMethod(Java_magick_ImageInfo_setSubrange,
+setIntMethod(Java_org_imagemagick_ImageInfo_setSubrange,
 	     subrange,
 	     "imageInfoHandle",
 	     ImageInfo)
@@ -178,7 +178,7 @@ setIntMethod(Java_magick_ImageInfo_setSubrange,
  * Method:    getSubrange
  * Signature: ()I
  */
-getIntMethod(Java_magick_ImageInfo_getSubrange,
+getIntMethod(Java_org_imagemagick_ImageInfo_getSubrange,
 	     subrange,
 	     "imageInfoHandle",
 	     ImageInfo)
@@ -190,7 +190,7 @@ getIntMethod(Java_magick_ImageInfo_getSubrange,
  * Method:    setServerName
  * Signature: (Ljava/lang/String;)V
  */
-setStringMethod(Java_magick_ImageInfo_setServerName,
+setStringMethod(Java_org_imagemagick_ImageInfo_setServerName,
 		server_name,
 		"imageInfoHandle",
 		ImageInfo)
@@ -202,7 +202,7 @@ setStringMethod(Java_magick_ImageInfo_setServerName,
  * Method:    getServerName
  * Signature: ()Ljava/lang/String;
  */
-getStringMethod(Java_magick_ImageInfo_getServerName,
+getStringMethod(Java_org_imagemagick_ImageInfo_getServerName,
 		server_name,
 		"imageInfoHandle",
 		ImageInfo)
@@ -214,7 +214,7 @@ getStringMethod(Java_magick_ImageInfo_getServerName,
  * Method:    setFont
  * Signature: (Ljava/lang/String;)V
  */
-setStringMethod(Java_magick_ImageInfo_setFont,
+setStringMethod(Java_org_imagemagick_ImageInfo_setFont,
 		font,
 		"imageInfoHandle",
 		ImageInfo)
@@ -226,7 +226,7 @@ setStringMethod(Java_magick_ImageInfo_setFont,
  * Method:    getFont
  * Signature: ()Ljava/lang/String;
  */
-getStringMethod(Java_magick_ImageInfo_getFont,
+getStringMethod(Java_org_imagemagick_ImageInfo_getFont,
 		font,
 		"imageInfoHandle",
 		ImageInfo)
@@ -239,7 +239,7 @@ getStringMethod(Java_magick_ImageInfo_getFont,
  * Method:    setSize
  * Signature: (Ljava/lang/String;)V
  */
-setStringMethod(Java_magick_ImageInfo_setSize,
+setStringMethod(Java_org_imagemagick_ImageInfo_setSize,
 		size,
 		"imageInfoHandle",
 		ImageInfo)
@@ -251,7 +251,7 @@ setStringMethod(Java_magick_ImageInfo_setSize,
  * Method:    getSize
  * Signature: ()Ljava/lang/String;
  */
-getStringMethod(Java_magick_ImageInfo_getSize,
+getStringMethod(Java_org_imagemagick_ImageInfo_getSize,
 		size,
 		"imageInfoHandle",
 		ImageInfo)
@@ -263,7 +263,7 @@ getStringMethod(Java_magick_ImageInfo_getSize,
  * Method:    setTile
  * Signature: (Ljava/lang/String;)V
  */
-setStringMethod(Java_magick_ImageInfo_setTile,
+setStringMethod(Java_org_imagemagick_ImageInfo_setTile,
 		tile,
 		"imageInfoHandle",
 		ImageInfo)
@@ -275,7 +275,7 @@ setStringMethod(Java_magick_ImageInfo_setTile,
  * Method:    getTile
  * Signature: ()Ljava/lang/String;
  */
-getStringMethod(Java_magick_ImageInfo_getTile,
+getStringMethod(Java_org_imagemagick_ImageInfo_getTile,
 		tile,
 		"imageInfoHandle",
 		ImageInfo)
@@ -287,7 +287,7 @@ getStringMethod(Java_magick_ImageInfo_getTile,
  * Method:    setDensity
  * Signature: (Ljava/lang/String;)V
  */
-setStringMethod(Java_magick_ImageInfo_setDensity,
+setStringMethod(Java_org_imagemagick_ImageInfo_setDensity,
 		density,
 		"imageInfoHandle",
 		ImageInfo)
@@ -299,7 +299,7 @@ setStringMethod(Java_magick_ImageInfo_setDensity,
  * Method:    getDensity
  * Signature: ()Ljava/lang/String;
  */
-getStringMethod(Java_magick_ImageInfo_getDensity,
+getStringMethod(Java_org_imagemagick_ImageInfo_getDensity,
 		density,
 		"imageInfoHandle",
 		ImageInfo)
@@ -311,7 +311,7 @@ getStringMethod(Java_magick_ImageInfo_getDensity,
  * Method:    setPage
  * Signature: (Ljava/lang/String;)V
  */
-setStringMethod(Java_magick_ImageInfo_setPage,
+setStringMethod(Java_org_imagemagick_ImageInfo_setPage,
 		page,
 		"imageInfoHandle",
 		ImageInfo)
@@ -323,7 +323,7 @@ setStringMethod(Java_magick_ImageInfo_setPage,
  * Method:    getPage
  * Signature: ()Ljava/lang/String;
  */
-getStringMethod(Java_magick_ImageInfo_getPage,
+getStringMethod(Java_org_imagemagick_ImageInfo_getPage,
 		page,
 		"imageInfoHandle",
 		ImageInfo)
@@ -336,7 +336,7 @@ getStringMethod(Java_magick_ImageInfo_getPage,
  * Method:    setTexture
  * Signature: (Ljava/lang/String;)V
  */
-setStringMethod(Java_magick_ImageInfo_setTexture,
+setStringMethod(Java_org_imagemagick_ImageInfo_setTexture,
 		texture,
 		"imageInfoHandle",
 		ImageInfo)
@@ -348,7 +348,7 @@ setStringMethod(Java_magick_ImageInfo_setTexture,
  * Method:    getTexture
  * Signature: ()Ljava/lang/String;
  */
-getStringMethod(Java_magick_ImageInfo_getTexture,
+getStringMethod(Java_org_imagemagick_ImageInfo_getTexture,
 		texture,
 		"imageInfoHandle",
 		ImageInfo)
@@ -360,7 +360,7 @@ getStringMethod(Java_magick_ImageInfo_getTexture,
  * Method:    setView
  * Signature: (Ljava/lang/String;)V
  */
-setStringMethod(Java_magick_ImageInfo_setView,
+setStringMethod(Java_org_imagemagick_ImageInfo_setView,
 		view,
 		"imageInfoHandle",
 		ImageInfo)
@@ -372,7 +372,7 @@ setStringMethod(Java_magick_ImageInfo_setView,
  * Method:    getView
  * Signature: ()Ljava/lang/String;
  */
-getStringMethod(Java_magick_ImageInfo_getView,
+getStringMethod(Java_org_imagemagick_ImageInfo_getView,
 		view,
 		"imageInfoHandle",
 		ImageInfo)
@@ -385,7 +385,7 @@ getStringMethod(Java_magick_ImageInfo_getView,
  * Method:    setAdjoin
  * Signature: (I)V
  */
-setIntMethod(Java_magick_ImageInfo_setAdjoin,
+setIntMethod(Java_org_imagemagick_ImageInfo_setAdjoin,
 	     adjoin,
 	     "imageInfoHandle",
 	     ImageInfo)
@@ -397,7 +397,7 @@ setIntMethod(Java_magick_ImageInfo_setAdjoin,
  * Method:    getAdjoin
  * Signature: ()I
  */
-getIntMethod(Java_magick_ImageInfo_getAdjoin,
+getIntMethod(Java_org_imagemagick_ImageInfo_getAdjoin,
 	     adjoin,
 	     "imageInfoHandle",
 	     ImageInfo)
@@ -409,7 +409,7 @@ getIntMethod(Java_magick_ImageInfo_getAdjoin,
  * Method:    setColorspace
  * Signature: (I)V
  */
-setIntMethod(Java_magick_ImageInfo_setColorspace,
+setIntMethod(Java_org_imagemagick_ImageInfo_setColorspace,
 	     colorspace,
 	     "imageInfoHandle",
 	     ImageInfo)
@@ -421,7 +421,7 @@ setIntMethod(Java_magick_ImageInfo_setColorspace,
  * Method:    getColorspace
  * Signature: ()I
  */
-getIntMethod(Java_magick_ImageInfo_getColorspace,
+getIntMethod(Java_org_imagemagick_ImageInfo_getColorspace,
 	     colorspace,
 	     "imageInfoHandle",
 	     ImageInfo)
@@ -433,7 +433,7 @@ getIntMethod(Java_magick_ImageInfo_getColorspace,
  * Method:    setCompression
  * Signature: (I)V
  */
-setIntMethod(Java_magick_ImageInfo_setCompression,
+setIntMethod(Java_org_imagemagick_ImageInfo_setCompression,
 	     compression,
 	     "imageInfoHandle",
 	     ImageInfo)
@@ -445,7 +445,7 @@ setIntMethod(Java_magick_ImageInfo_setCompression,
  * Method:    getCompression
  * Signature: ()I
  */
-getIntMethod(Java_magick_ImageInfo_getCompression,
+getIntMethod(Java_org_imagemagick_ImageInfo_getCompression,
 	     compression,
 	     "imageInfoHandle",
 	     ImageInfo)
@@ -457,7 +457,7 @@ getIntMethod(Java_magick_ImageInfo_getCompression,
  * Method:    setDither
  * Signature: (I)V
  */
-setIntMethod(Java_magick_ImageInfo_setDither,
+setIntMethod(Java_org_imagemagick_ImageInfo_setDither,
 	     dither,
 	     "imageInfoHandle",
 	     ImageInfo)
@@ -469,7 +469,7 @@ setIntMethod(Java_magick_ImageInfo_setDither,
  * Method:    getDither
  * Signature: ()I
  */
-getIntMethod(Java_magick_ImageInfo_getDither,
+getIntMethod(Java_org_imagemagick_ImageInfo_getDither,
 	     dither,
 	     "imageInfoHandle",
 	     ImageInfo)
@@ -480,7 +480,7 @@ getIntMethod(Java_magick_ImageInfo_getDither,
  * Method:    setAntialias
  * Signature: (I)V
  */
-setIntMethod(Java_magick_ImageInfo_setAntialias,
+setIntMethod(Java_org_imagemagick_ImageInfo_setAntialias,
 	     antialias,
 	     "imageInfoHandle",
 	     ImageInfo)
@@ -492,7 +492,7 @@ setIntMethod(Java_magick_ImageInfo_setAntialias,
  * Method:    getAntialias
  * Signature: ()I
  */
-getIntMethod(Java_magick_ImageInfo_getAntialias,
+getIntMethod(Java_org_imagemagick_ImageInfo_getAntialias,
 	     antialias,
 	     "imageInfoHandle",
 	     ImageInfo)
@@ -503,7 +503,7 @@ getIntMethod(Java_magick_ImageInfo_getAntialias,
  * Method:    setInterlace
  * Signature: (I)V
  */
-setIntMethod(Java_magick_ImageInfo_setInterlace,
+setIntMethod(Java_org_imagemagick_ImageInfo_setInterlace,
 	     interlace,
 	     "imageInfoHandle",
 	     ImageInfo)
@@ -515,7 +515,7 @@ setIntMethod(Java_magick_ImageInfo_setInterlace,
  * Method:    getInterlace
  * Signature: ()I
  */
-getIntMethod(Java_magick_ImageInfo_getInterlace,
+getIntMethod(Java_org_imagemagick_ImageInfo_getInterlace,
 	     interlace,
 	     "imageInfoHandle",
 	     ImageInfo)
@@ -527,7 +527,7 @@ getIntMethod(Java_magick_ImageInfo_getInterlace,
  * Method:    setMonochrome
  * Signature: (I)V
  */
-setIntMethod(Java_magick_ImageInfo_setMonochrome,
+setIntMethod(Java_org_imagemagick_ImageInfo_setMonochrome,
 	     monochrome,
 	     "imageInfoHandle",
 	     ImageInfo)
@@ -539,7 +539,7 @@ setIntMethod(Java_magick_ImageInfo_setMonochrome,
  * Method:    getMonochrome
  * Signature: ()I
  */
-getIntMethod(Java_magick_ImageInfo_getMonochrome,
+getIntMethod(Java_org_imagemagick_ImageInfo_getMonochrome,
 	     monochrome,
 	     "imageInfoHandle",
 	     ImageInfo)
@@ -551,7 +551,7 @@ getIntMethod(Java_magick_ImageInfo_getMonochrome,
  * Method:    setPointSize
  * Signature: (I)V
  */
-setIntMethod(Java_magick_ImageInfo_setPointSize,
+setIntMethod(Java_org_imagemagick_ImageInfo_setPointSize,
 	     pointsize,
 	     "imageInfoHandle",
 	     ImageInfo)
@@ -563,7 +563,7 @@ setIntMethod(Java_magick_ImageInfo_setPointSize,
  * Method:    getPointSize
  * Signature: ()I
  */
-getIntMethod(Java_magick_ImageInfo_getPointSize,
+getIntMethod(Java_org_imagemagick_ImageInfo_getPointSize,
 	     pointsize,
 	     "imageInfoHandle",
 	     ImageInfo)
@@ -575,7 +575,7 @@ getIntMethod(Java_magick_ImageInfo_getPointSize,
  * Method:    setQuality
  * Signature: (I)V
  */
-setIntMethod(Java_magick_ImageInfo_setQuality,
+setIntMethod(Java_org_imagemagick_ImageInfo_setQuality,
 	     quality,
 	     "imageInfoHandle",
 	     ImageInfo)
@@ -587,7 +587,7 @@ setIntMethod(Java_magick_ImageInfo_setQuality,
  * Method:    getQuality
  * Signature: ()I
  */
-getIntMethod(Java_magick_ImageInfo_getQuality,
+getIntMethod(Java_org_imagemagick_ImageInfo_getQuality,
 	     quality,
 	     "imageInfoHandle",
 	     ImageInfo)
@@ -599,7 +599,7 @@ getIntMethod(Java_magick_ImageInfo_getQuality,
  * Method:    setVerbose
  * Signature: (I)V
  */
-setIntMethod(Java_magick_ImageInfo_setVerbose,
+setIntMethod(Java_org_imagemagick_ImageInfo_setVerbose,
 	     verbose,
 	     "imageInfoHandle",
 	     ImageInfo)
@@ -611,7 +611,7 @@ setIntMethod(Java_magick_ImageInfo_setVerbose,
  * Method:    getVerbose
  * Signature: ()I
  */
-getIntMethod(Java_magick_ImageInfo_getVerbose,
+getIntMethod(Java_org_imagemagick_ImageInfo_getVerbose,
 	     verbose,
 	     "imageInfoHandle",
 	     ImageInfo)
@@ -622,7 +622,7 @@ getIntMethod(Java_magick_ImageInfo_getVerbose,
  * Method:    setPreviewType
  * Signature: (I)V
  */
-setIntMethod(Java_magick_ImageInfo_setPreviewType,
+setIntMethod(Java_org_imagemagick_ImageInfo_setPreviewType,
 	     preview_type,
 	     "imageInfoHandle",
 	     ImageInfo)
@@ -634,7 +634,7 @@ setIntMethod(Java_magick_ImageInfo_setPreviewType,
  * Method:    getPreviewType
  * Signature: ()I
  */
-getIntMethod(Java_magick_ImageInfo_getPreviewType,
+getIntMethod(Java_org_imagemagick_ImageInfo_getPreviewType,
 	     preview_type,
 	     "imageInfoHandle",
 	     ImageInfo)
@@ -647,7 +647,7 @@ getIntMethod(Java_magick_ImageInfo_getPreviewType,
  * Method:    setPing
  * Signature: (Z)V
  */
-setBoolMethod(Java_magick_ImageInfo_setPing,
+setBoolMethod(Java_org_imagemagick_ImageInfo_setPing,
  	      ping,
 	      "imageInfoHandle",
 	      ImageInfo)
@@ -659,7 +659,7 @@ setBoolMethod(Java_magick_ImageInfo_setPing,
  * Method:    getPing
  * Signature: ()Z
  */
-getBoolMethod(Java_magick_ImageInfo_getPing,
+getBoolMethod(Java_org_imagemagick_ImageInfo_getPing,
 	      ping,
 	      "imageInfoHandle",
 	      ImageInfo)
@@ -672,7 +672,7 @@ getBoolMethod(Java_magick_ImageInfo_getPing,
  * Method:    destroyImageInfo
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_magick_ImageInfo_destroyImageInfo
+JNIEXPORT void JNICALL Java_org_imagemagick_ImageInfo_destroyImageInfo
     (JNIEnv *env, jobject obj)
 {
     ImageInfo *imageInfo = NULL;
@@ -695,7 +695,7 @@ JNIEXPORT void JNICALL Java_magick_ImageInfo_destroyImageInfo
  *
  * Contributed by Abdulbaset Gaddah <agaddah@yahoo.com>
  */
-JNIEXPORT void JNICALL Java_magick_ImageInfo_setMagick
+JNIEXPORT void JNICALL Java_org_imagemagick_ImageInfo_setMagick
     (JNIEnv *env, jobject obj, jstring magick)
 {
     ImageInfo *imageInfo = NULL;
@@ -732,7 +732,7 @@ JNIEXPORT void JNICALL Java_magick_ImageInfo_setMagick
  *
  * Contributed by Abdulbaset Gaddah <agaddah@yahoo.com>
  */
-JNIEXPORT jstring JNICALL Java_magick_ImageInfo_getMagick
+JNIEXPORT jstring JNICALL Java_org_imagemagick_ImageInfo_getMagick
     (JNIEnv *env, jobject obj)
 {
     ImageInfo *imageInfo = NULL;
@@ -752,7 +752,7 @@ JNIEXPORT jstring JNICALL Java_magick_ImageInfo_getMagick
  * Method:    setUnits
  * Signature: (I)V
  */
-setIntMethod(Java_magick_ImageInfo_setUnits,
+setIntMethod(Java_org_imagemagick_ImageInfo_setUnits,
 	     units,
 	     "imageInfoHandle",
 	     ImageInfo)
@@ -763,7 +763,7 @@ setIntMethod(Java_magick_ImageInfo_setUnits,
  * Method:    getUnits
  * Signature: ()I
  */
-getIntMethod(Java_magick_ImageInfo_getUnits,
+getIntMethod(Java_org_imagemagick_ImageInfo_getUnits,
 	     units,
 	     "imageInfoHandle",
 	     ImageInfo)
@@ -777,7 +777,7 @@ getIntMethod(Java_magick_ImageInfo_getUnits,
  * Method:    setBorderColor
  * Signature: (Lmagick/PixelPacket;)V
  */
-setPixelPacketMethod(Java_magick_ImageInfo_setBorderColor,
+setPixelPacketMethod(Java_org_imagemagick_ImageInfo_setBorderColor,
                      border_color,
                      "imageInfoHandle",
                      ImageInfo)
@@ -787,7 +787,7 @@ setPixelPacketMethod(Java_magick_ImageInfo_setBorderColor,
  * Method:    getBorderColor
  * Signature: ()Lmagick/PixelPacket;
  */
-getPixelPacketMethod(Java_magick_ImageInfo_getBorderColor,
+getPixelPacketMethod(Java_org_imagemagick_ImageInfo_getBorderColor,
                      border_color,
                      "imageInfoHandle",
                      ImageInfo)
@@ -797,7 +797,7 @@ getPixelPacketMethod(Java_magick_ImageInfo_getBorderColor,
  * Method:    getDepth
  * Signature: ()I
  */
-getIntMethod(Java_magick_ImageInfo_getDepth,
+getIntMethod(Java_org_imagemagick_ImageInfo_getDepth,
 	     depth,
 	     "imageInfoHandle",
 	     ImageInfo)
@@ -807,7 +807,7 @@ getIntMethod(Java_magick_ImageInfo_getDepth,
  * Method:    setDepth
  * Signature: (I)V
  */
-setIntMethod(Java_magick_ImageInfo_setDepth,
+setIntMethod(Java_org_imagemagick_ImageInfo_setDepth,
 	     depth,
 	     "imageInfoHandle",
 	     ImageInfo)

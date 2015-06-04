@@ -14,7 +14,7 @@
  * Method:    init
  * Signature: (Lmagick/ImageInfo;)V
  */
-JNIEXPORT void JNICALL Java_magick_MontageInfo_init
+JNIEXPORT void JNICALL Java_org_imagemagick_MontageInfo_init
   (JNIEnv *env, jobject self, jobject imageInfo)
 {
     ImageInfo *info;
@@ -50,7 +50,7 @@ JNIEXPORT void JNICALL Java_magick_MontageInfo_init
  * Method:    destroyMontageInfo
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_magick_MontageInfo_destroyMontageInfo
+JNIEXPORT void JNICALL Java_org_imagemagick_MontageInfo_destroyMontageInfo
   (JNIEnv *env, jobject self)
 {
     MontageInfo *montageInfo = NULL;
@@ -72,7 +72,7 @@ JNIEXPORT void JNICALL Java_magick_MontageInfo_destroyMontageInfo
  * Method:    setGeometry
  * Signature: (Ljava/lang/String;)V
  */
-setStringMethod(Java_magick_MontageInfo_setGeometry,
+setStringMethod(Java_org_imagemagick_MontageInfo_setGeometry,
 		geometry,
 		"montageInfoHandle",
 		MontageInfo)
@@ -84,7 +84,7 @@ setStringMethod(Java_magick_MontageInfo_setGeometry,
  * Method:    getGeometry
  * Signature: ()Ljava/lang/String;
  */
-getStringMethod(Java_magick_MontageInfo_getGeometry,
+getStringMethod(Java_org_imagemagick_MontageInfo_getGeometry,
 		geometry,
 		"montageInfoHandle",
 		MontageInfo)
@@ -95,7 +95,7 @@ getStringMethod(Java_magick_MontageInfo_getGeometry,
  * Method:    setTile
  * Signature: (Ljava/lang/String;)V
  */
-setStringMethod(Java_magick_MontageInfo_setTile,
+setStringMethod(Java_org_imagemagick_MontageInfo_setTile,
 		tile,
 		"montageInfoHandle",
 		MontageInfo)
@@ -107,7 +107,7 @@ setStringMethod(Java_magick_MontageInfo_setTile,
  * Method:    getTile
  * Signature: ()Ljava/lang/String;
  */
-getStringMethod(Java_magick_MontageInfo_getTile,
+getStringMethod(Java_org_imagemagick_MontageInfo_getTile,
 		tile,
 		"montageInfoHandle",
 		MontageInfo)
@@ -119,7 +119,7 @@ getStringMethod(Java_magick_MontageInfo_getTile,
  * Method:    setTitle
  * Signature: (Ljava/lang/String;)V
  */
-setStringMethod(Java_magick_MontageInfo_setTitle,
+setStringMethod(Java_org_imagemagick_MontageInfo_setTitle,
 		title,
 		"montageInfoHandle",
 		MontageInfo)
@@ -131,7 +131,7 @@ setStringMethod(Java_magick_MontageInfo_setTitle,
  * Method:    getTitle
  * Signature: ()Ljava/lang/String;
  */
-getStringMethod(Java_magick_MontageInfo_getTitle,
+getStringMethod(Java_org_imagemagick_MontageInfo_getTitle,
 		title,
 		"montageInfoHandle",
 		MontageInfo)
@@ -143,7 +143,7 @@ getStringMethod(Java_magick_MontageInfo_getTitle,
  * Method:    setFrame
  * Signature: (Ljava/lang/String;)V
  */
-setStringMethod(Java_magick_MontageInfo_setFrame,
+setStringMethod(Java_org_imagemagick_MontageInfo_setFrame,
 		frame,
 		"montageInfoHandle",
 		MontageInfo)
@@ -155,7 +155,7 @@ setStringMethod(Java_magick_MontageInfo_setFrame,
  * Method:    getFrame
  * Signature: ()Ljava/lang/String;
  */
-getStringMethod(Java_magick_MontageInfo_getFrame,
+getStringMethod(Java_org_imagemagick_MontageInfo_getFrame,
 		frame,
 		"montageInfoHandle",
 		MontageInfo)
@@ -168,7 +168,7 @@ getStringMethod(Java_magick_MontageInfo_getFrame,
  * Method:    setTexture
  * Signature: (Ljava/lang/String;)V
  */
-setStringMethod(Java_magick_MontageInfo_setTexture,
+setStringMethod(Java_org_imagemagick_MontageInfo_setTexture,
 		texture,
 		"montageInfoHandle",
 		MontageInfo)
@@ -180,7 +180,7 @@ setStringMethod(Java_magick_MontageInfo_setTexture,
  * Method:    getTexture
  * Signature: ()Ljava/lang/String;
  */
-getStringMethod(Java_magick_MontageInfo_getTexture,
+getStringMethod(Java_org_imagemagick_MontageInfo_getTexture,
 		texture,
 		"montageInfoHandle",
 		MontageInfo)
@@ -193,7 +193,7 @@ getStringMethod(Java_magick_MontageInfo_getTexture,
  * Method:    setFont
  * Signature: (Ljava/lang/String;)V
  */
-setStringMethod(Java_magick_MontageInfo_setFont,
+setStringMethod(Java_org_imagemagick_MontageInfo_setFont,
 		font,
 		"montageInfoHandle",
 		MontageInfo)
@@ -205,7 +205,7 @@ setStringMethod(Java_magick_MontageInfo_setFont,
  * Method:    getFont
  * Signature: ()Ljava/lang/String;
  */
-getStringMethod(Java_magick_MontageInfo_getFont,
+getStringMethod(Java_org_imagemagick_MontageInfo_getFont,
 		font,
 		"montageInfoHandle",
 		MontageInfo)
@@ -216,7 +216,7 @@ getStringMethod(Java_magick_MontageInfo_getFont,
  * Method:    setPointSize
  * Signature: (D)V
  */
-setDoubleMethod(Java_magick_MontageInfo_setPointSize,
+setDoubleMethod(Java_org_imagemagick_MontageInfo_setPointSize,
                 pointsize,
                 "montageInfoHandle",
                 MontageInfo)
@@ -226,7 +226,7 @@ setDoubleMethod(Java_magick_MontageInfo_setPointSize,
  * Method:    getPointSize
  * Signature: ()D
  */
-getDoubleMethod(Java_magick_MontageInfo_getPointSize,
+getDoubleMethod(Java_org_imagemagick_MontageInfo_getPointSize,
                 pointsize,
                 "montageInfoHandle",
                 MontageInfo)
@@ -237,7 +237,7 @@ getDoubleMethod(Java_magick_MontageInfo_getPointSize,
  * Method:    setBorderWidth
  * Signature: (I)V
  */
-setIntMethod(Java_magick_MontageInfo_setBorderWidth,
+setIntMethod(Java_org_imagemagick_MontageInfo_setBorderWidth,
              border_width,
              "montageInfoHandle",
              MontageInfo)
@@ -247,7 +247,7 @@ setIntMethod(Java_magick_MontageInfo_setBorderWidth,
  * Method:    getBorderWidth
  * Signature: ()I
  */
-getIntMethod(Java_magick_MontageInfo_getBorderWidth,
+getIntMethod(Java_org_imagemagick_MontageInfo_getBorderWidth,
              border_width,
              "montageInfoHandle",
              MontageInfo)
@@ -258,7 +258,7 @@ getIntMethod(Java_magick_MontageInfo_getBorderWidth,
  * Method:    setGravity
  * Signature: (I)V
  */
-setIntMethod(Java_magick_MontageInfo_setGravity,
+setIntMethod(Java_org_imagemagick_MontageInfo_setGravity,
              gravity,
              "montageInfoHandle",
              MontageInfo)
@@ -268,7 +268,7 @@ setIntMethod(Java_magick_MontageInfo_setGravity,
  * Method:    getGravity
  * Signature: ()I
  */
-getIntMethod(Java_magick_MontageInfo_getGravity,
+getIntMethod(Java_org_imagemagick_MontageInfo_getGravity,
              gravity,
              "montageInfoHandle",
              MontageInfo)
@@ -278,7 +278,7 @@ getIntMethod(Java_magick_MontageInfo_getGravity,
  * Method:    setShadow
  * Signature: (Z)V
  */
-setBoolMethod(Java_magick_MontageInfo_setShadow,
+setBoolMethod(Java_org_imagemagick_MontageInfo_setShadow,
               shadow,
               "montageInfoHandle",
               MontageInfo)
@@ -288,7 +288,7 @@ setBoolMethod(Java_magick_MontageInfo_setShadow,
  * Method:    getShadow
  * Signature: ()Z
  */
-getBoolMethod(Java_magick_MontageInfo_getShadow,
+getBoolMethod(Java_org_imagemagick_MontageInfo_getShadow,
               shadow,
               "montageInfoHandle",
               MontageInfo)
@@ -299,7 +299,7 @@ getBoolMethod(Java_magick_MontageInfo_getShadow,
  * Method:    setFill
  * Signature: (Lmagick/PixelPacket;)V
  */
-setPixelPacketMethod(Java_magick_MontageInfo_setFill,
+setPixelPacketMethod(Java_org_imagemagick_MontageInfo_setFill,
                      fill,
                      "montageInfoHandle",
                      MontageInfo)
@@ -309,7 +309,7 @@ setPixelPacketMethod(Java_magick_MontageInfo_setFill,
  * Method:    getFill
  * Signature: ()Z
  */
-getPixelPacketMethod(Java_magick_MontageInfo_getFill,
+getPixelPacketMethod(Java_org_imagemagick_MontageInfo_getFill,
                      fill,
                      "montageInfoHandle",
                      MontageInfo)
@@ -320,7 +320,7 @@ getPixelPacketMethod(Java_magick_MontageInfo_getFill,
  * Method:    setStroke
  * Signature: (Lmagick/PixelPacket;)V
  */
-setPixelPacketMethod(Java_magick_MontageInfo_setStroke,
+setPixelPacketMethod(Java_org_imagemagick_MontageInfo_setStroke,
                      stroke,
                      "montageInfoHandle",
                      MontageInfo)
@@ -330,7 +330,7 @@ setPixelPacketMethod(Java_magick_MontageInfo_setStroke,
  * Method:    getStroke
  * Signature: ()Z
  */
-getPixelPacketMethod(Java_magick_MontageInfo_getStroke,
+getPixelPacketMethod(Java_org_imagemagick_MontageInfo_getStroke,
                      stroke,
                      "montageInfoHandle",
                      MontageInfo)
@@ -342,7 +342,7 @@ getPixelPacketMethod(Java_magick_MontageInfo_getStroke,
  * Method:    setBackgroundColor
  * Signature: (Lmagick/PixelPacket;)V
  */
-setPixelPacketMethod(Java_magick_MontageInfo_setBackgroundColor,
+setPixelPacketMethod(Java_org_imagemagick_MontageInfo_setBackgroundColor,
                      background_color,
                      "montageInfoHandle",
                      MontageInfo)
@@ -352,7 +352,7 @@ setPixelPacketMethod(Java_magick_MontageInfo_setBackgroundColor,
  * Method:    getBackgroundColor
  * Signature: ()Z
  */
-getPixelPacketMethod(Java_magick_MontageInfo_getBackgroundColor,
+getPixelPacketMethod(Java_org_imagemagick_MontageInfo_getBackgroundColor,
                      background_color,
                      "montageInfoHandle",
                      MontageInfo)
@@ -362,7 +362,7 @@ getPixelPacketMethod(Java_magick_MontageInfo_getBackgroundColor,
  * Method:    setBorderColor
  * Signature: (Lmagick/PixelPacket;)V
  */
-setPixelPacketMethod(Java_magick_MontageInfo_setBorderColor,
+setPixelPacketMethod(Java_org_imagemagick_MontageInfo_setBorderColor,
                      border_color,
                      "montageInfoHandle",
                      MontageInfo)
@@ -372,7 +372,7 @@ setPixelPacketMethod(Java_magick_MontageInfo_setBorderColor,
  * Method:    getBorderColor
  * Signature: ()Z
  */
-getPixelPacketMethod(Java_magick_MontageInfo_getBorderColor,
+getPixelPacketMethod(Java_org_imagemagick_MontageInfo_getBorderColor,
                      border_color,
                      "montageInfoHandle",
                      MontageInfo)
@@ -383,7 +383,7 @@ getPixelPacketMethod(Java_magick_MontageInfo_getBorderColor,
  * Method:    setMatteColor
  * Signature: (Lmagick/PixelPacket;)V
  */
-setPixelPacketMethod(Java_magick_MontageInfo_setMatteColor,
+setPixelPacketMethod(Java_org_imagemagick_MontageInfo_setMatteColor,
                      matte_color,
                      "montageInfoHandle",
                      MontageInfo)
@@ -393,7 +393,7 @@ setPixelPacketMethod(Java_magick_MontageInfo_setMatteColor,
  * Method:    getMatteColor
  * Signature: ()Z
  */
-getPixelPacketMethod(Java_magick_MontageInfo_getMatteColor,
+getPixelPacketMethod(Java_org_imagemagick_MontageInfo_getMatteColor,
                      matte_color,
                      "montageInfoHandle",
                      MontageInfo)
@@ -404,7 +404,7 @@ getPixelPacketMethod(Java_magick_MontageInfo_getMatteColor,
  * Method:    setFileName
  * Signature: (Ljava/lang/String;)V
  */
-JNIEXPORT void JNICALL Java_magick_MontageInfo_setFileName
+JNIEXPORT void JNICALL Java_org_imagemagick_MontageInfo_setFileName
   (JNIEnv *env, jobject self, jstring fileName)
 {
     MontageInfo *montageInfo = NULL;
@@ -429,7 +429,7 @@ JNIEXPORT void JNICALL Java_magick_MontageInfo_setFileName
  * Method:    getFileName
  * Signature: ()Ljava/lang/String;
  */
-JNIEXPORT jstring JNICALL Java_magick_MontageInfo_getFileName
+JNIEXPORT jstring JNICALL Java_org_imagemagick_MontageInfo_getFileName
   (JNIEnv *env, jobject self)
 {
     MontageInfo *montageInfo = NULL;

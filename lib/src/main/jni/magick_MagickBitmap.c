@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 JNIEXPORT jintArray JNICALL
-    Java_magick_util_MagickBitmap_bytesToInts(JNIEnv *env, jclass cls, jbyteArray bytes) {
+    Java_org_imagemagick_util_MagickBitmap_bytesToInts(JNIEnv *env, jclass cls, jbyteArray bytes) {
 	jintArray result;
 	jbyte *bytePtr;
 	//jint *intPtr;

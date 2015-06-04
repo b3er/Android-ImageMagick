@@ -14,7 +14,7 @@
  * Method:    queryColorDatabase
  * Signature: (Ljava/lang/String;)Lmagick/PixelPacket;
  */
-JNIEXPORT jobject JNICALL Java_magick_PixelPacket_queryColorDatabase
+JNIEXPORT jobject JNICALL Java_org_imagemagick_PixelPacket_queryColorDatabase
     (JNIEnv *env, jclass class, jstring target)
 {
     PixelPacket iPixelPacket;

@@ -14,7 +14,7 @@
  * Method:    init
  * Signature: (Lmagick/ImageInfo;)V
  */
-JNIEXPORT void JNICALL Java_magick_DrawInfo_init
+JNIEXPORT void JNICALL Java_org_imagemagick_DrawInfo_init
   (JNIEnv *env, jobject self, jobject jImageInfo)
 {
     jfieldID drawInfoFieldID = 0;
@@ -60,7 +60,7 @@ JNIEXPORT void JNICALL Java_magick_DrawInfo_init
  * Method:    destroyDrawInfo
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_magick_DrawInfo_destroyDrawInfo
+JNIEXPORT void JNICALL Java_org_imagemagick_DrawInfo_destroyDrawInfo
   (JNIEnv *env, jobject self)
 {
     DrawInfo *info = NULL;
@@ -81,7 +81,7 @@ JNIEXPORT void JNICALL Java_magick_DrawInfo_destroyDrawInfo
  * Method:    setPrimitive
  * Signature: (Ljava/lang/String;)V
  */
-JNIEXPORT void JNICALL Java_magick_DrawInfo_setPrimitive
+JNIEXPORT void JNICALL Java_org_imagemagick_DrawInfo_setPrimitive
     (JNIEnv *env, jobject self, jstring primitive)
 {
     DrawInfo *info = NULL;
@@ -157,7 +157,7 @@ JNIEXPORT void JNICALL Java_magick_DrawInfo_setPrimitive
  * Method:    getPrimitive
  * Signature: ()Ljava/lang/String;
  */
-getStringMethod(Java_magick_DrawInfo_getPrimitive,
+getStringMethod(Java_org_imagemagick_DrawInfo_getPrimitive,
 		primitive,
 		"drawInfoHandle",
 		DrawInfo)
@@ -167,7 +167,7 @@ getStringMethod(Java_magick_DrawInfo_getPrimitive,
  * Method:    setGeometry
  * Signature: (Ljava/lang/String;)V
  */
-setStringMethod(Java_magick_DrawInfo_setGeometry,
+setStringMethod(Java_org_imagemagick_DrawInfo_setGeometry,
 		geometry,
 		"drawInfoHandle",
 		DrawInfo)
@@ -180,7 +180,7 @@ setStringMethod(Java_magick_DrawInfo_setGeometry,
  * Method:    getGeometry
  * Signature: ()Ljava/lang/String;
  */
-getStringMethod(Java_magick_DrawInfo_getGeometry,
+getStringMethod(Java_org_imagemagick_DrawInfo_getGeometry,
 		geometry,
 		"drawInfoHandle",
 		DrawInfo)
@@ -192,7 +192,7 @@ getStringMethod(Java_magick_DrawInfo_getGeometry,
  * Method:    setText
  * Signature: (Ljava/lang/String;)V
  */
-JNIEXPORT void JNICALL Java_magick_DrawInfo_setText
+JNIEXPORT void JNICALL Java_org_imagemagick_DrawInfo_setText
     (JNIEnv *env, jobject self, jstring text)
 {
     DrawInfo *info = NULL;
@@ -268,7 +268,7 @@ JNIEXPORT void JNICALL Java_magick_DrawInfo_setText
  * Method:    getText
  * Signature: ()Ljava/lang/String;
  */
-getStringMethod(Java_magick_DrawInfo_getText,
+getStringMethod(Java_org_imagemagick_DrawInfo_getText,
 		text,
 		"drawInfoHandle",
 		DrawInfo)
@@ -279,7 +279,7 @@ getStringMethod(Java_magick_DrawInfo_getText,
  * Method:    setFont
  * Signature: (Ljava/lang/String;)V
  */
-setStringMethod(Java_magick_DrawInfo_setFont,
+setStringMethod(Java_org_imagemagick_DrawInfo_setFont,
 		font,
 		"drawInfoHandle",
 		DrawInfo)
@@ -289,7 +289,7 @@ setStringMethod(Java_magick_DrawInfo_setFont,
  * Method:    getFont
  * Signature: ()Ljava/lang/String;
  */
-getStringMethod(Java_magick_DrawInfo_getFont,
+getStringMethod(Java_org_imagemagick_DrawInfo_getFont,
 		font,
 		"drawInfoHandle",
 		DrawInfo)
@@ -300,7 +300,7 @@ getStringMethod(Java_magick_DrawInfo_getFont,
  * Method:    setStrokeAntialias
  * Signature: (Z)V
  */
-setBoolMethod(Java_magick_DrawInfo_setStrokeAntialias,
+setBoolMethod(Java_org_imagemagick_DrawInfo_setStrokeAntialias,
 	      stroke_antialias,
 	      "drawInfoHandle",
 	      DrawInfo)
@@ -311,7 +311,7 @@ setBoolMethod(Java_magick_DrawInfo_setStrokeAntialias,
  * Method:    getStrokeAntialias
  * Signature: ()Z
  */
-getBoolMethod(Java_magick_DrawInfo_getStrokeAntialias,
+getBoolMethod(Java_org_imagemagick_DrawInfo_getStrokeAntialias,
 	      stroke_antialias,
 	      "drawInfoHandle",
 	      DrawInfo)
@@ -322,7 +322,7 @@ getBoolMethod(Java_magick_DrawInfo_getStrokeAntialias,
  * Method:    setTextAntialias
  * Signature: (Z)V
  */
-setBoolMethod(Java_magick_DrawInfo_setTextAntialias,
+setBoolMethod(Java_org_imagemagick_DrawInfo_setTextAntialias,
 	      text_antialias,
 	      "drawInfoHandle",
 	      DrawInfo)
@@ -333,7 +333,7 @@ setBoolMethod(Java_magick_DrawInfo_setTextAntialias,
  * Method:    getTextAntialias
  * Signature: ()Z
  */
-getBoolMethod(Java_magick_DrawInfo_getTextAntialias,
+getBoolMethod(Java_org_imagemagick_DrawInfo_getTextAntialias,
 	      text_antialias,
 	      "drawInfoHandle",
 	      DrawInfo)
@@ -344,7 +344,7 @@ getBoolMethod(Java_magick_DrawInfo_getTextAntialias,
  * Method:    setGravity
  * Signature: (I)V
  */
-setIntMethod(Java_magick_DrawInfo_setGravity,
+setIntMethod(Java_org_imagemagick_DrawInfo_setGravity,
 	     gravity,
 	     "drawInfoHandle",
 	     DrawInfo)
@@ -354,7 +354,7 @@ setIntMethod(Java_magick_DrawInfo_setGravity,
  * Method:    getGravity
  * Signature: ()I
  */
-getIntMethod(Java_magick_DrawInfo_getGravity,
+getIntMethod(Java_org_imagemagick_DrawInfo_getGravity,
 	     gravity,
 	     "drawInfoHandle",
 	     DrawInfo)
@@ -364,7 +364,7 @@ getIntMethod(Java_magick_DrawInfo_getGravity,
  * Method:    setOpacity
  * Signature: (I)V
  */
-setIntMethod(Java_magick_DrawInfo_setOpacity,
+setIntMethod(Java_org_imagemagick_DrawInfo_setOpacity,
 	     opacity,
 	     "drawInfoHandle",
 	     DrawInfo)
@@ -374,7 +374,7 @@ setIntMethod(Java_magick_DrawInfo_setOpacity,
  * Method:    getOpacity
  * Signature: ()I
  */
-getIntMethod(Java_magick_DrawInfo_getOpacity,
+getIntMethod(Java_org_imagemagick_DrawInfo_getOpacity,
 	     opacity,
 	     "drawInfoHandle",
 	     DrawInfo)
@@ -384,7 +384,7 @@ getIntMethod(Java_magick_DrawInfo_getOpacity,
  * Method:    setDecorate
  * Signature: (I)V
  */
-setIntMethod(Java_magick_DrawInfo_setDecorate,
+setIntMethod(Java_org_imagemagick_DrawInfo_setDecorate,
 	     decorate,
 	     "drawInfoHandle",
 	     DrawInfo)
@@ -394,7 +394,7 @@ setIntMethod(Java_magick_DrawInfo_setDecorate,
  * Method:    getDecorate
  * Signature: ()I
  */
-getIntMethod(Java_magick_DrawInfo_getDecorate,
+getIntMethod(Java_org_imagemagick_DrawInfo_getDecorate,
 	     decorate,
 	     "drawInfoHandle",
 	     DrawInfo)
@@ -405,7 +405,7 @@ getIntMethod(Java_magick_DrawInfo_getDecorate,
  * Method:    setStrokeWidth
  * Signature: (D)V
  */
-setDoubleMethod(Java_magick_DrawInfo_setStrokeWidth,
+setDoubleMethod(Java_org_imagemagick_DrawInfo_setStrokeWidth,
 		stroke_width,
 		"drawInfoHandle",
 		DrawInfo)
@@ -415,7 +415,7 @@ setDoubleMethod(Java_magick_DrawInfo_setStrokeWidth,
  * Method:    getStrokeWidth
  * Signature: ()D
  */
-getDoubleMethod(Java_magick_DrawInfo_getStrokeWidth,
+getDoubleMethod(Java_org_imagemagick_DrawInfo_getStrokeWidth,
 		stroke_width,
 		"drawInfoHandle",
 		DrawInfo)
@@ -427,7 +427,7 @@ getDoubleMethod(Java_magick_DrawInfo_getStrokeWidth,
  * Method:    setPointsize
  * Signature: (D)V
  */
-setDoubleMethod(Java_magick_DrawInfo_setPointsize,
+setDoubleMethod(Java_org_imagemagick_DrawInfo_setPointsize,
 		pointsize,
 		"drawInfoHandle",
 		DrawInfo)
@@ -437,7 +437,7 @@ setDoubleMethod(Java_magick_DrawInfo_setPointsize,
  * Method:    getPointsize
  * Signature: ()D
  */
-getDoubleMethod(Java_magick_DrawInfo_getPointsize,
+getDoubleMethod(Java_org_imagemagick_DrawInfo_getPointsize,
 		pointsize,
 		"drawInfoHandle",
 		DrawInfo)
@@ -447,7 +447,7 @@ getDoubleMethod(Java_magick_DrawInfo_getPointsize,
  * Method:    setFill
  * Signature: (Lmagick/PixelPacket;)V
  */
-setPixelPacketMethod(Java_magick_DrawInfo_setFill,
+setPixelPacketMethod(Java_org_imagemagick_DrawInfo_setFill,
 		     fill,
 		     "drawInfoHandle",
 		     DrawInfo)
@@ -457,7 +457,7 @@ setPixelPacketMethod(Java_magick_DrawInfo_setFill,
  * Method:    getFill
  * Signature: ()Lmagick/PixelPacket;
  */
-getPixelPacketMethod(Java_magick_DrawInfo_getFill,
+getPixelPacketMethod(Java_org_imagemagick_DrawInfo_getFill,
 		     fill,
 		     "drawInfoHandle",
 		     DrawInfo)
@@ -467,7 +467,7 @@ getPixelPacketMethod(Java_magick_DrawInfo_getFill,
  * Method:    setStroke
  * Signature: (Lmagick/PixelPacket;)V
  */
-setPixelPacketMethod(Java_magick_DrawInfo_setStroke,
+setPixelPacketMethod(Java_org_imagemagick_DrawInfo_setStroke,
 		     stroke,
 		     "drawInfoHandle",
 		     DrawInfo)
@@ -477,7 +477,7 @@ setPixelPacketMethod(Java_magick_DrawInfo_setStroke,
  * Method:    getStroke
  * Signature: ()Lmagick/PixelPacket;
  */
-getPixelPacketMethod(Java_magick_DrawInfo_getStroke,
+getPixelPacketMethod(Java_org_imagemagick_DrawInfo_getStroke,
 		     stroke,
 		     "drawInfoHandle",
 		     DrawInfo)
@@ -487,7 +487,7 @@ getPixelPacketMethod(Java_magick_DrawInfo_getStroke,
  * Method:    setUnderColor
  * Signature: (Lmagick/PixelPacket;)V
  */
-setPixelPacketMethod(Java_magick_DrawInfo_setUnderColor,
+setPixelPacketMethod(Java_org_imagemagick_DrawInfo_setUnderColor,
 		     undercolor,
 		     "drawInfoHandle",
 		     DrawInfo)
@@ -497,7 +497,7 @@ setPixelPacketMethod(Java_magick_DrawInfo_setUnderColor,
  * Method:    getUnderColor
  * Signature: ()Lmagick/PixelPacket;
  */
-getPixelPacketMethod(Java_magick_DrawInfo_getUnderColor,
+getPixelPacketMethod(Java_org_imagemagick_DrawInfo_getUnderColor,
 		     undercolor,
 		     "drawInfoHandle",
 		     DrawInfo)
@@ -507,7 +507,7 @@ getPixelPacketMethod(Java_magick_DrawInfo_getUnderColor,
  * Method:    setBorderColor
  * Signature: (Lmagick/PixelPacket;)V
  */
-setPixelPacketMethod(Java_magick_DrawInfo_setBorderColor,
+setPixelPacketMethod(Java_org_imagemagick_DrawInfo_setBorderColor,
 		     border_color,
 		     "drawInfoHandle",
 		     DrawInfo)
@@ -517,7 +517,7 @@ setPixelPacketMethod(Java_magick_DrawInfo_setBorderColor,
  * Method:    getBorderColor
  * Signature: ()Lmagick/PixelPacket;
  */
-getPixelPacketMethod(Java_magick_DrawInfo_getBorderColor,
+getPixelPacketMethod(Java_org_imagemagick_DrawInfo_getBorderColor,
 		     border_color,
 		     "drawInfoHandle",
 		     DrawInfo)
@@ -528,7 +528,7 @@ getPixelPacketMethod(Java_magick_DrawInfo_getBorderColor,
  * Method:    setTile
  * Signature: (Lmagick/MagickImage;)V
  */
-JNIEXPORT void JNICALL Java_magick_DrawInfo_setTile
+JNIEXPORT void JNICALL Java_org_imagemagick_DrawInfo_setTile
   (JNIEnv *env, jobject self, jobject tileImage)
 {
     DrawInfo *drawInfo;
@@ -568,7 +568,7 @@ JNIEXPORT void JNICALL Java_magick_DrawInfo_setTile
  * Method:    getTile
  * Signature: ()Lmagick/MagickImage;
  */
-JNIEXPORT jobject JNICALL Java_magick_DrawInfo_getTile
+JNIEXPORT jobject JNICALL Java_org_imagemagick_DrawInfo_getTile
   (JNIEnv *env, jobject self)
 {
     DrawInfo *drawInfo;
