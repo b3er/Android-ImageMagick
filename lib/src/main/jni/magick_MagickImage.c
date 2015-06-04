@@ -6,7 +6,7 @@
 #include <sys/types.h>
 #include <magick/api.h>
 //#include "magick_MagickImage.h"
-#include "jorg.imagemagick.h"
+#include "jmagick.h"
 
 #include <android/log.h>
 
