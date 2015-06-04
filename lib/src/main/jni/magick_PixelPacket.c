@@ -5,7 +5,7 @@
 #include <time.h>
 #include <sys/types.h>
 #include <magick/api.h>
-#include "jmagick.h"
+#include "jorg.imagemagick.h"
 //#include "magick_PixelPacket.h"
 
 
@@ -37,7 +37,7 @@ JNIEXPORT jobject JNICALL Java_org_imagemagick_PixelPacket_queryColorDatabase
 
     consMethodID = (*env)->GetMethodID(env, class, "<init>", "(IIII)V");
     if (consMethodID == 0) {
-	throwMagickException(env, "Unable to construct magick.PixelPacket");
+	throwMagickException(env, "Unable to construct org.imagemagick.PixelPacket");
 	return NULL;
     }
 
@@ -55,7 +55,7 @@ JNIEXPORT jobject JNICALL Java_org_imagemagick_PixelPacket_queryColorDatabase
 				     (jint) iPixelPacket.blue,
 				     (jint) iPixelPacket.opacity);
     if (jPixelPacket == NULL) {
-	throwMagickException(env, "Unable to construct magick.PixelPacket");
+	throwMagickException(env, "Unable to construct org.imagemagick.PixelPacket");
 	return NULL;
     }
 

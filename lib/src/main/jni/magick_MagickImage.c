@@ -6,7 +6,7 @@
 #include <sys/types.h>
 #include <magick/api.h>
 //#include "magick_MagickImage.h"
-#include "jmagick.h"
+#include "jorg.imagemagick.h"
 
 #include <android/log.h>
 
@@ -21,7 +21,7 @@
  * Method:    initMultiImage
  * Signature: ([Lmagick/MagickImage;)V
  */
-JNIEXPORT void JNICALL Java_org_imagemagick_MagickImage_initMultiImage
+JNIEXPORT void JNICALL Java_magick_MagickImage_initMultiImage
   (JNIEnv *env, jobject self, jobjectArray images)
 {
     Image *image, *newImage, *lastImage, *p;
@@ -123,7 +123,7 @@ JNIEXPORT void JNICALL Java_org_imagemagick_MagickImage_initMultiImage
  * Method:    allocateImage
  * Signature: (Lmagick/ImageInfo;)V
  */
-JNIEXPORT void JNICALL Java_org_imagemagick_MagickImage_allocateImage
+JNIEXPORT void JNICALL Java_magick_MagickImage_allocateImage
   (JNIEnv *env, jobject self, jobject imageInfoObj)
 {
     ImageInfo *imageInfo = NULL;
@@ -158,7 +158,7 @@ JNIEXPORT void JNICALL Java_org_imagemagick_MagickImage_allocateImage
  * Method:    readImage
  * Signature: (Lmagick/ImageInfo;)V
  */
-JNIEXPORT void JNICALL Java_org_imagemagick_MagickImage_readImage
+JNIEXPORT void JNICALL Java_magick_MagickImage_readImage
     (JNIEnv *env, jobject self, jobject imageInfoObj)
 {
     ImageInfo *imageInfo = NULL;
@@ -210,7 +210,7 @@ JNIEXPORT void JNICALL Java_org_imagemagick_MagickImage_readImage
  * Method:    pingImage
  * Signature: (Lmagick/ImageInfo;)V
  */
-JNIEXPORT void JNICALL Java_org_imagemagick_MagickImage_pingImage
+JNIEXPORT void JNICALL Java_magick_MagickImage_pingImage
     (JNIEnv *env, jobject self, jobject imageInfoObj)
 {
     ImageInfo *imageInfo = NULL;
@@ -263,7 +263,7 @@ JNIEXPORT void JNICALL Java_org_imagemagick_MagickImage_pingImage
  * Method:    writeImage
  * Signature: (Lmagick/ImageInfo;)Z
  */
-JNIEXPORT jboolean JNICALL Java_org_imagemagick_MagickImage_writeImage
+JNIEXPORT jboolean JNICALL Java_magick_MagickImage_writeImage
     (JNIEnv *env, jobject self, jobject imageInfoObj)
 {
     ImageInfo *imageInfo = NULL;
@@ -298,7 +298,7 @@ JNIEXPORT jboolean JNICALL Java_org_imagemagick_MagickImage_writeImage
  * Method:    getFileName
  * Signature: ()Ljava/lang/String;
  */
-JNIEXPORT jstring JNICALL Java_org_imagemagick_MagickImage_getFileName
+JNIEXPORT jstring JNICALL Java_magick_MagickImage_getFileName
     (JNIEnv *env, jobject self)
 {
     Image *image = NULL;
@@ -320,7 +320,7 @@ JNIEXPORT jstring JNICALL Java_org_imagemagick_MagickImage_getFileName
  * Method:    setFileName
  * Signature: (Ljava/lang/String;)V
  */
-JNIEXPORT void JNICALL Java_org_imagemagick_MagickImage_setFileName
+JNIEXPORT void JNICALL Java_magick_MagickImage_setFileName
     (JNIEnv *env, jobject self, jstring fileName)
 {
     Image *image = NULL;
@@ -345,7 +345,7 @@ JNIEXPORT void JNICALL Java_org_imagemagick_MagickImage_setFileName
  * Method:    setFilter
  * Signature: (I)V
  */
-JNIEXPORT void JNICALL Java_org_imagemagick_MagickImage_setFilter
+JNIEXPORT void JNICALL Java_magick_MagickImage_setFilter
   (JNIEnv *env, jobject self, jint filter)
 {
     Image *image = NULL;
@@ -365,7 +365,7 @@ JNIEXPORT void JNICALL Java_org_imagemagick_MagickImage_setFilter
  * Method:    getFilter
  * Signature: ()I
  */
-JNIEXPORT jint JNICALL Java_org_imagemagick_MagickImage_getFilter
+JNIEXPORT jint JNICALL Java_magick_MagickImage_getFilter
   (JNIEnv *env, jobject self)
 {
     Image *image = NULL;
@@ -387,7 +387,7 @@ JNIEXPORT jint JNICALL Java_org_imagemagick_MagickImage_getFilter
  * Method:    getDimension
  * Signature: ()Ljava/awt/Dimension;
  */
-JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_getDimension
+JNIEXPORT jobject JNICALL Java_magick_MagickImage_getDimension
     (JNIEnv *env, jobject self)
 {
     Image *image = NULL;
@@ -426,7 +426,7 @@ JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_getDimension
  * Method:    addNoiseImage
  * Signature: (I)Lmagick/MagickImage;
  */
-JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_addNoiseImage
+JNIEXPORT jobject JNICALL Java_magick_MagickImage_addNoiseImage
     (JNIEnv *env, jobject self, jint noiseType)
 {
     NoiseType noiseEnum;
@@ -474,7 +474,7 @@ JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_addNoiseImage
  * Method:    getWidth
  * Signature: ()I
  */
-getIntMethod(Java_org_imagemagick_MagickImage_getWidth,
+getIntMethod(Java_magick_MagickImage_getWidth,
     columns,
     "magickImageHandle",
     Image)
@@ -484,7 +484,7 @@ getIntMethod(Java_org_imagemagick_MagickImage_getWidth,
  * Method:    getHeight
  * Signature: ()I
  */
-getIntMethod(Java_org_imagemagick_MagickImage_getHeight,
+getIntMethod(Java_magick_MagickImage_getHeight,
     rows,
     "magickImageHandle",
     Image)
@@ -494,7 +494,7 @@ getIntMethod(Java_org_imagemagick_MagickImage_getHeight,
  * Method:    getDepth
  * Signature: ()I
  */
-getIntMethod(Java_org_imagemagick_MagickImage_getDepth,
+getIntMethod(Java_magick_MagickImage_getDepth,
     depth,
     "magickImageHandle",
     Image)
@@ -505,7 +505,7 @@ getIntMethod(Java_org_imagemagick_MagickImage_getDepth,
  * Method:    setDepth
  * Signature: (I)V
  */
-setIntMethod(Java_org_imagemagick_MagickImage_setDepth,
+setIntMethod(Java_magick_MagickImage_setDepth,
     depth,
     "magickImageHandle",
     Image)
@@ -516,7 +516,7 @@ setIntMethod(Java_org_imagemagick_MagickImage_setDepth,
  * Method:    blurImage
  * Signature: (DD)Lmagick/MagickImage;
  */
-JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_blurImage
+JNIEXPORT jobject JNICALL Java_magick_MagickImage_blurImage
   (JNIEnv *env, jobject self, jdouble radius, jdouble sigma)
 {
     Image *image = NULL, *blurredImage = NULL;
@@ -554,7 +554,7 @@ JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_blurImage
  * Method:    getStorageClass
  * Signature: ()I
  */
-JNIEXPORT jint JNICALL Java_org_imagemagick_MagickImage_getStorageClass
+JNIEXPORT jint JNICALL Java_magick_MagickImage_getStorageClass
     (JNIEnv *env, jobject self)
 {
     Image *image = NULL;
@@ -577,7 +577,7 @@ JNIEXPORT jint JNICALL Java_org_imagemagick_MagickImage_getStorageClass
  * Method:    annotateImage
  * Signature: (Lmagick/AnnotateInfo;)V
  */
-JNIEXPORT void JNICALL Java_org_imagemagick_MagickImage_annotateImage
+JNIEXPORT void JNICALL Java_magick_MagickImage_annotateImage
     (JNIEnv *env, jobject self, jobject drawInfo)
 {
     Image *image;
@@ -597,7 +597,7 @@ JNIEXPORT void JNICALL Java_org_imagemagick_MagickImage_annotateImage
  * Method:    charcoalImage
  * Signature: (DD)Lmagick/MagickImage;
  */
-JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_charcoalImage
+JNIEXPORT jobject JNICALL Java_magick_MagickImage_charcoalImage
   (JNIEnv *env, jobject self, jdouble radius, jdouble sigma)
 {
     Image *image = NULL, *charcoalImage = NULL;
@@ -637,7 +637,7 @@ JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_charcoalImage
  * Method:    borderImage
  * Signature: (Ljava/awt/Rectangle;)Lmagick/MagickImage;
  */
-JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_borderImage
+JNIEXPORT jobject JNICALL Java_magick_MagickImage_borderImage
     (JNIEnv *env, jobject self, jobject jRect)
 {
     RectangleInfo iRect;
@@ -683,7 +683,7 @@ JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_borderImage
  * Method:    raiseImage
  * Signature: (Ljava/awt/Rectangle;Z)Z
  */
-JNIEXPORT jboolean JNICALL Java_org_imagemagick_MagickImage_raiseImage
+JNIEXPORT jboolean JNICALL Java_magick_MagickImage_raiseImage
     (JNIEnv *env, jobject self, jobject jRect, jboolean raise)
 {
     RectangleInfo iRect;
@@ -711,7 +711,7 @@ JNIEXPORT jboolean JNICALL Java_org_imagemagick_MagickImage_raiseImage
  * Method:    chopImage
  * Signature: (Ljava/awt/Rectangle;)Lmagick/MagickImage;
  */
-JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_chopImage
+JNIEXPORT jobject JNICALL Java_magick_MagickImage_chopImage
     (JNIEnv *env, jobject self, jobject jRect)
 {
     RectangleInfo iRect;
@@ -759,7 +759,7 @@ JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_chopImage
  * Method:    colorizeImage
  * Signature: (Ljava/lang/String;Lmagick/PixelPacket;)Lmagick/MagickImage;
  */
-JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_colorizeImage
+JNIEXPORT jobject JNICALL Java_magick_MagickImage_colorizeImage
   (JNIEnv *env, jobject self, jstring opacity, jobject target)
 {
     Image *image = NULL;
@@ -813,7 +813,7 @@ JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_colorizeImage
  * Method:    compositeImage
  * Signature: (ILmagick/MagickImage;II)Z
  */
-JNIEXPORT jboolean JNICALL Java_org_imagemagick_MagickImage_compositeImage
+JNIEXPORT jboolean JNICALL Java_magick_MagickImage_compositeImage
     (JNIEnv *env, jobject self, jint compOp,
      jobject compImage, jint xOffset, jint yOffset)
 {
@@ -841,7 +841,7 @@ JNIEXPORT jboolean JNICALL Java_org_imagemagick_MagickImage_compositeImage
  * Method:    contrastImage
  * Signature: (Z)Z
  */
-JNIEXPORT jboolean JNICALL Java_org_imagemagick_MagickImage_contrastImage
+JNIEXPORT jboolean JNICALL Java_magick_MagickImage_contrastImage
     (JNIEnv *env, jobject self, jboolean sharpen)
 {
     Image *image = NULL;
@@ -863,7 +863,7 @@ JNIEXPORT jboolean JNICALL Java_org_imagemagick_MagickImage_contrastImage
  * Method:    cloneImage
  * Signature: (IIZ)Lmagick/MagickImage;
  */
-JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_cloneImage
+JNIEXPORT jobject JNICALL Java_magick_MagickImage_cloneImage
     (JNIEnv *env, jobject self, jint columns, jint rows, jboolean clonePixels)
 {
     Image *image = NULL, *clone = NULL;
@@ -904,7 +904,7 @@ JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_cloneImage
  * Signature: (IILjava/lang/String;[B)V
  */
 JNIEXPORT void JNICALL
-    Java_org_imagemagick_MagickImage_constituteImage__IILjava_lang_String_2_3B
+    Java_magick_MagickImage_constituteImage__IILjava_lang_String_2_3B
     (JNIEnv *env, jobject self,
      jint width, jint height,
      jstring map,
@@ -970,7 +970,7 @@ JNIEXPORT void JNICALL
  * Signature: (IILjava/lang/String;[I)V
  */
 JNIEXPORT void JNICALL
-    Java_org_imagemagick_MagickImage_constituteImage__IILjava_lang_String_2_3I
+    Java_magick_MagickImage_constituteImage__IILjava_lang_String_2_3I
     (JNIEnv *env, jobject self,
      jint width, jint height,
      jstring map,
@@ -1032,7 +1032,7 @@ JNIEXPORT void JNICALL
  * Signature: (IILjava/lang/String;[F)V
  */
 JNIEXPORT void JNICALL
-    Java_org_imagemagick_MagickImage_constituteImage__IILjava_lang_String_2_3F
+    Java_magick_MagickImage_constituteImage__IILjava_lang_String_2_3F
     (JNIEnv *env, jobject self,
      jint width, jint height,
      jstring map, jfloatArray pixels)
@@ -1095,7 +1095,7 @@ JNIEXPORT void JNICALL
  * Method:    cropImage
  * Signature: (Ljava/awt/Rectangle;)Lmagick/MagickImage;
  */
-JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_cropImage
+JNIEXPORT jobject JNICALL Java_magick_MagickImage_cropImage
     (JNIEnv *env, jobject self, jobject jRect)
 {
     RectangleInfo iRect;
@@ -1141,7 +1141,7 @@ JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_cropImage
  * Method:    cycleColormapImage
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_org_imagemagick_MagickImage_cycleColormapImage
+JNIEXPORT void JNICALL Java_magick_MagickImage_cycleColormapImage
     (JNIEnv *env, jobject self, jint amount)
 {
     Image *image = NULL;
@@ -1161,7 +1161,7 @@ JNIEXPORT void JNICALL Java_org_imagemagick_MagickImage_cycleColormapImage
  * Method:    edgeImage
  * Signature: (D)Lmagick/MagickImage;
  */
-JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_edgeImage
+JNIEXPORT jobject JNICALL Java_magick_MagickImage_edgeImage
   (JNIEnv *env, jobject self, jdouble radius)
 {
     Image *image = NULL, *edgedImage = NULL;
@@ -1200,7 +1200,7 @@ JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_edgeImage
  * Method:    embossImage
  * Signature: (DD)Lmagick/MagickImage;
  */
-JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_embossImage
+JNIEXPORT jobject JNICALL Java_magick_MagickImage_embossImage
   (JNIEnv *env, jobject self, jdouble radius, jdouble sigma)
 {
     Image *image = NULL, *embossedImage = NULL;
@@ -1239,7 +1239,7 @@ JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_embossImage
  * Method:    enhanceImage
  * Signature: ()Lmagick/MagickImage;
  */
-JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_enhanceImage
+JNIEXPORT jobject JNICALL Java_magick_MagickImage_enhanceImage
     (JNIEnv *env, jobject self)
 {
     jobject newImage;
@@ -1279,7 +1279,7 @@ JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_enhanceImage
  * Method:    destroyImages
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_org_imagemagick_MagickImage_destroyImages
+JNIEXPORT void JNICALL Java_magick_MagickImage_destroyImages
     (JNIEnv *env, jobject self)
 {
     jfieldID handleFid = 0;
@@ -1300,7 +1300,7 @@ JNIEXPORT void JNICALL Java_org_imagemagick_MagickImage_destroyImages
  * Method:    drawImage
  * Signature: (Lmagick/DrawInfo;)Z
  */
-JNIEXPORT jboolean JNICALL Java_org_imagemagick_MagickImage_drawImage
+JNIEXPORT jboolean JNICALL Java_magick_MagickImage_drawImage
     (JNIEnv *env, jobject self, jobject drawInfoObj)
 {
     DrawInfo *drawInfo;
@@ -1336,7 +1336,7 @@ JNIEXPORT jboolean JNICALL Java_org_imagemagick_MagickImage_drawImage
  * Method:    equalizeImage
  * Signature: ()Z
  */
-JNIEXPORT jboolean JNICALL Java_org_imagemagick_MagickImage_equalizeImage
+JNIEXPORT jboolean JNICALL Java_magick_MagickImage_equalizeImage
     (JNIEnv *env, jobject self)
 {
     Image *image =
@@ -1357,7 +1357,7 @@ JNIEXPORT jboolean JNICALL Java_org_imagemagick_MagickImage_equalizeImage
  * Method:    flipImage
  * Signature: ()Lmagick/MagickImage;
  */
-JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_flipImage
+JNIEXPORT jobject JNICALL Java_magick_MagickImage_flipImage
     (JNIEnv *env, jobject self)
 {
     jobject newImage;
@@ -1397,7 +1397,7 @@ JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_flipImage
  * Method:    flopImage
  * Signature: ()Lmagick/MagickImage;
  */
-JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_flopImage
+JNIEXPORT jobject JNICALL Java_magick_MagickImage_flopImage
     (JNIEnv *env, jobject self)
 {
     jobject newImage;
@@ -1437,7 +1437,7 @@ JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_flopImage
  * Method:    gaussianBlurImage
  * Signature: (DD)Lmagick/MagickImage;
  */
-JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_gaussianBlurImage
+JNIEXPORT jobject JNICALL Java_magick_MagickImage_gaussianBlurImage
   (JNIEnv *env, jobject self, jdouble radius, jdouble sigma)
 {
     Image *image = NULL, *blurredImage = NULL;
@@ -1476,7 +1476,7 @@ JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_gaussianBlurImage
  * Method:    implodeImage
  * Signature: (D)Lmagick/MagickImage;
  */
-JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_implodeImage
+JNIEXPORT jobject JNICALL Java_magick_MagickImage_implodeImage
   (JNIEnv *env, jobject self, jdouble amount)
 {
     Image *image = NULL, *implodedImage = NULL;
@@ -1516,7 +1516,7 @@ JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_implodeImage
  * Method:    gammaImage
  * Signature: (Ljava/lang/String;)Z
  */
-JNIEXPORT jboolean JNICALL Java_org_imagemagick_MagickImage_gammaImage
+JNIEXPORT jboolean JNICALL Java_magick_MagickImage_gammaImage
     (JNIEnv *env, jobject self, jstring gamma)
 {
     const char *cstr;
@@ -1542,7 +1542,7 @@ JNIEXPORT jboolean JNICALL Java_org_imagemagick_MagickImage_gammaImage
  * Method:    isGrayImage
  * Signature: ()Z
  */
-JNIEXPORT jboolean JNICALL Java_org_imagemagick_MagickImage_isGrayImage
+JNIEXPORT jboolean JNICALL Java_magick_MagickImage_isGrayImage
     (JNIEnv *env, jobject self)
 {
     int result;
@@ -1569,7 +1569,7 @@ JNIEXPORT jboolean JNICALL Java_org_imagemagick_MagickImage_isGrayImage
  * Method:    isMonochromeImage
  * Signature: ()Z
  */
-JNIEXPORT jboolean JNICALL Java_org_imagemagick_MagickImage_isMonochromeImage
+JNIEXPORT jboolean JNICALL Java_magick_MagickImage_isMonochromeImage
     (JNIEnv *env, jobject self)
 {
     ExceptionInfo exception;
@@ -1598,7 +1598,7 @@ JNIEXPORT jboolean JNICALL Java_org_imagemagick_MagickImage_isMonochromeImage
  * Method:    magnifyImage
  * Signature: ()Lmagick/MagickImage;
  */
-JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_magnifyImage
+JNIEXPORT jobject JNICALL Java_magick_MagickImage_magnifyImage
   (JNIEnv *env, jobject self)
 {
     jobject newImage;
@@ -1638,7 +1638,7 @@ JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_magnifyImage
  * Method:    matteFloodfillImage
  * Signature: (Lmagick/RunlengthPacket;IIII)Z
  */
-JNIEXPORT jboolean JNICALL Java_org_imagemagick_MagickImage_matteFloodfillImage
+JNIEXPORT jboolean JNICALL Java_magick_MagickImage_matteFloodfillImage
   (JNIEnv *env, jobject self,
    jobject target, jint matte, jint x, jint y, jint method)
 {
@@ -1665,7 +1665,7 @@ JNIEXPORT jboolean JNICALL Java_org_imagemagick_MagickImage_matteFloodfillImage
  * Method:    medianFilterImage
  * Signature: (D)Lmagick/MagickImage;
  */
-JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_medianFilterImage
+JNIEXPORT jobject JNICALL Java_magick_MagickImage_medianFilterImage
   (JNIEnv *env, jobject self, jdouble radius)
 {
     Image *image = NULL, *filteredImage = NULL;
@@ -1705,7 +1705,7 @@ JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_medianFilterImage
  * Method:    colorFloodfillImage
  * Signature: (Lmagick/DrawInfo;Lmagick/PixelPacket;III)Z
  */
-JNIEXPORT jboolean JNICALL Java_org_imagemagick_MagickImage_colorFloodfillImage
+JNIEXPORT jboolean JNICALL Java_magick_MagickImage_colorFloodfillImage
   (JNIEnv *env, jobject self, jobject drawInfo, jobject target,
    jint x, jint y, jint paintMethod)
 {
@@ -1740,7 +1740,7 @@ JNIEXPORT jboolean JNICALL Java_org_imagemagick_MagickImage_colorFloodfillImage
  * Method:    minifyImage
  * Signature: ()Lmagick/MagickImage;
  */
-JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_minifyImage
+JNIEXPORT jobject JNICALL Java_magick_MagickImage_minifyImage
     (JNIEnv *env, jobject self)
 {
     jobject newImage;
@@ -1781,7 +1781,7 @@ JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_minifyImage
  * Method:    modulateImage
  * Signature: (Ljava/lang/String;)Z
  */
-JNIEXPORT jboolean JNICALL Java_org_imagemagick_MagickImage_modulateImage
+JNIEXPORT jboolean JNICALL Java_magick_MagickImage_modulateImage
     (JNIEnv *env, jobject self, jstring modulate)
 {
     const char *cstr;
@@ -1808,7 +1808,7 @@ JNIEXPORT jboolean JNICALL Java_org_imagemagick_MagickImage_modulateImage
  * Method:    oilPaintImage
  * Signature: (D)Lmagick/MagickImage;
  */
-JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_oilPaintImage
+JNIEXPORT jobject JNICALL Java_magick_MagickImage_oilPaintImage
   (JNIEnv *env, jobject self, jdouble radius)
 {
     Image *image = NULL, *paintedImage = NULL;
@@ -1850,7 +1850,7 @@ JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_oilPaintImage
  * Method:    negateImage
  * Signature: (I)Z
  */
-JNIEXPORT jboolean JNICALL Java_org_imagemagick_MagickImage_negateImage
+JNIEXPORT jboolean JNICALL Java_magick_MagickImage_negateImage
     (JNIEnv *env, jobject self, jint grayscale)
 {
     Image *image =
@@ -1868,7 +1868,7 @@ JNIEXPORT jboolean JNICALL Java_org_imagemagick_MagickImage_negateImage
  * Method:    reduceNoiseImage
  * Signature: (D)Lmagick/MagickImage;
  */
-JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_reduceNoiseImage
+JNIEXPORT jobject JNICALL Java_magick_MagickImage_reduceNoiseImage
   (JNIEnv *env, jobject self, jdouble radius)
 {
     Image *image = NULL, *filteredImage = NULL;
@@ -1909,7 +1909,7 @@ JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_reduceNoiseImage
  * Method:    normalizeImage
  * Signature: ()Z
  */
-JNIEXPORT jboolean JNICALL Java_org_imagemagick_MagickImage_normalizeImage
+JNIEXPORT jboolean JNICALL Java_magick_MagickImage_normalizeImage
     (JNIEnv *env, jobject self)
 {
     Image *image =
@@ -1930,7 +1930,7 @@ JNIEXPORT jboolean JNICALL Java_org_imagemagick_MagickImage_normalizeImage
  * Method:    opaqueImage
  * Signature: (Lmagick/PixelPacket;Lmagick/PixelPacket;)Z
  */
-JNIEXPORT jboolean JNICALL Java_org_imagemagick_MagickImage_opaqueImage
+JNIEXPORT jboolean JNICALL Java_magick_MagickImage_opaqueImage
     (JNIEnv *env, jobject self, jobject target, jobject penColor)
 {
     PixelPacket ppTarget, ppPenColor;
@@ -1959,7 +1959,7 @@ JNIEXPORT jboolean JNICALL Java_org_imagemagick_MagickImage_opaqueImage
  * Method:    rgbTransformImage
  * Signature: (I)Z
  */
-JNIEXPORT jboolean JNICALL Java_org_imagemagick_MagickImage_rgbTransformImage
+JNIEXPORT jboolean JNICALL Java_magick_MagickImage_rgbTransformImage
     (JNIEnv *env, jobject self, jint colorspace)
 {
     Image *image =
@@ -1980,7 +1980,7 @@ JNIEXPORT jboolean JNICALL Java_org_imagemagick_MagickImage_rgbTransformImage
  * Method:    rollImage
  * Signature: (II)Lmagick/MagickImage;
  */
-JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_rollImage
+JNIEXPORT jobject JNICALL Java_magick_MagickImage_rollImage
     (JNIEnv *env, jobject self, jint xOffset, jint yOffset)
 {
     jobject newImage;
@@ -2020,7 +2020,7 @@ JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_rollImage
  * Method:    sampleImage
  * Signature: (II)Lmagick/MagickImage;
  */
-JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_sampleImage
+JNIEXPORT jobject JNICALL Java_magick_MagickImage_sampleImage
     (JNIEnv *env, jobject self, jint cols, jint rows)
 {
     jobject newImage;
@@ -2058,7 +2058,7 @@ JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_sampleImage
  * Method:    segmentImage
  * Signature: (IDD)I
  */
-JNIEXPORT jint JNICALL Java_org_imagemagick_MagickImage_segmentImage
+JNIEXPORT jint JNICALL Java_magick_MagickImage_segmentImage
     (JNIEnv *env, jobject self, jint colorspace, jdouble cluster_threshold,
                                                  jdouble smoothing_threshold)
 {
@@ -2098,7 +2098,7 @@ JNIEXPORT jint JNICALL Java_org_imagemagick_MagickImage_segmentImage
  * Method:    solarizeImage
  * Signature: (D)V
  */
-JNIEXPORT void JNICALL Java_org_imagemagick_MagickImage_solarizeImage
+JNIEXPORT void JNICALL Java_magick_MagickImage_solarizeImage
     (JNIEnv *env, jobject self, jdouble threshold)
 {
     Image *image =
@@ -2121,7 +2121,7 @@ JNIEXPORT void JNICALL Java_org_imagemagick_MagickImage_solarizeImage
  * Method:    scaleImage
  * Signature: (II)Lmagick/MagickImage;
  */
-JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_scaleImage
+JNIEXPORT jobject JNICALL Java_magick_MagickImage_scaleImage
     (JNIEnv *env, jobject self, jint cols, jint rows)
 {
     Image *image = NULL;
@@ -2152,7 +2152,7 @@ JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_scaleImage
     returnedImage = newImageObject(env, scaledImage);
     if (returnedImage == NULL) {
 	DestroyImages(scaledImage);
-	throwMagickException(env, "Unable to construct magick.MagickImage");
+	throwMagickException(env, "Unable to construct org.imagemagick.MagickImage");
 	return NULL;
     }
     setHandle(env, returnedImage, "magickImageHandle",
@@ -2169,7 +2169,7 @@ JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_scaleImage
  * Method:    spreadImage
  * Signature: (I)Lmagick/MagickImage;
  */
-JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_spreadImage
+JNIEXPORT jobject JNICALL Java_magick_MagickImage_spreadImage
   (JNIEnv *env, jobject self, jint radius)
 {
     Image *image = NULL, *randomizedImage = NULL;
@@ -2208,7 +2208,7 @@ JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_spreadImage
  * Method:    swirlImage
  * Signature: (D)Lmagick/MagickImage;
  */
-JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_swirlImage
+JNIEXPORT jobject JNICALL Java_magick_MagickImage_swirlImage
   (JNIEnv *env, jobject self, jdouble degrees)
 {
     Image *image = NULL, *swirledImage = NULL;
@@ -2249,7 +2249,7 @@ JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_swirlImage
  * Method:    sortColormapByIntensity
  * Signature: ()Z
  */
-JNIEXPORT jboolean JNICALL Java_org_imagemagick_MagickImage_sortColormapByIntensity
+JNIEXPORT jboolean JNICALL Java_magick_MagickImage_sortColormapByIntensity
     (JNIEnv *env, jobject self)
 {
     Image *image =
@@ -2269,7 +2269,7 @@ JNIEXPORT jboolean JNICALL Java_org_imagemagick_MagickImage_sortColormapByIntens
  * Method:    syncImage
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_org_imagemagick_MagickImage_syncImage
+JNIEXPORT void JNICALL Java_magick_MagickImage_syncImage
     (JNIEnv *env, jobject self)
 {
     Image *image =
@@ -2290,7 +2290,7 @@ JNIEXPORT void JNICALL Java_org_imagemagick_MagickImage_syncImage
  * Method:    textureImage
  * Signature: (Lmagick/MagickImage;)V
  */
-JNIEXPORT void JNICALL Java_org_imagemagick_MagickImage_textureImage
+JNIEXPORT void JNICALL Java_magick_MagickImage_textureImage
   (JNIEnv *env, jobject self, jobject texture)
 {
     Image *textureImage;
@@ -2318,7 +2318,7 @@ JNIEXPORT void JNICALL Java_org_imagemagick_MagickImage_textureImage
  * Method:    thresholdImage
  * Signature: (D)Z
  */
-JNIEXPORT jboolean JNICALL Java_org_imagemagick_MagickImage_thresholdImage
+JNIEXPORT jboolean JNICALL Java_magick_MagickImage_thresholdImage
     (JNIEnv *env, jobject self, jdouble threshold)
 {
     Image *image =
@@ -2338,7 +2338,7 @@ JNIEXPORT jboolean JNICALL Java_org_imagemagick_MagickImage_thresholdImage
  * Method:    transformImage
  * Signature: (Ljava/lang/String;Ljava/lang/String;)V
  */
-JNIEXPORT void JNICALL Java_org_imagemagick_MagickImage_transformImage
+JNIEXPORT void JNICALL Java_magick_MagickImage_transformImage
     (JNIEnv *env, jobject self, jstring cropGeometry, jstring imageGeometry)
 {
     const char *cropStr, *imageStr;
@@ -2382,7 +2382,7 @@ JNIEXPORT void JNICALL Java_org_imagemagick_MagickImage_transformImage
  * Method:    unsharpMaskImage
  * Signature: (DDDD)Lmagick/MagickImage;
  */
-JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_unsharpMaskImage
+JNIEXPORT jobject JNICALL Java_magick_MagickImage_unsharpMaskImage
   (JNIEnv *env, jobject self, jdouble radius, jdouble sigma,
                               jdouble amount, jdouble threshold)
 {
@@ -2429,7 +2429,7 @@ JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_unsharpMaskImage
  * Method:    waveImage
  * Signature: (DD)Lmagick/MagickImage;
  */
-JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_waveImage
+JNIEXPORT jobject JNICALL Java_magick_MagickImage_waveImage
   (JNIEnv *env, jobject self, jdouble amplitude, jdouble wavelength)
 {
     Image *image = NULL, *wavedImage = NULL;
@@ -2471,7 +2471,7 @@ JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_waveImage
  * Method:    transformRgbImage
  * Signature: (I)Z
  */
-JNIEXPORT jboolean JNICALL Java_org_imagemagick_MagickImage_transformRgbImage
+JNIEXPORT jboolean JNICALL Java_magick_MagickImage_transformRgbImage
     (JNIEnv *env, jobject self, jint colorspace)
 {
     Image *image =
@@ -2491,7 +2491,7 @@ JNIEXPORT jboolean JNICALL Java_org_imagemagick_MagickImage_transformRgbImage
  * Method:    transparentImage
  * Signature: (Lmagick/PixelPacket;I)Z
  */
-JNIEXPORT jboolean JNICALL Java_org_imagemagick_MagickImage_transparentImage
+JNIEXPORT jboolean JNICALL Java_magick_MagickImage_transparentImage
     (JNIEnv *env, jobject self, jobject color, jint opacity)
 {
     PixelPacket pixelPacket;
@@ -2514,7 +2514,7 @@ JNIEXPORT jboolean JNICALL Java_org_imagemagick_MagickImage_transparentImage
  * Method:    zoomImage
  * Signature: (II)Lmagick/MagickImage;
  */
-JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_zoomImage
+JNIEXPORT jobject JNICALL Java_magick_MagickImage_zoomImage
     (JNIEnv *env, jobject self, jint cols, jint rows)
 {
     jobject newObj;
@@ -2554,7 +2554,7 @@ JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_zoomImage
  * Signature: (IIIILjava/lang/String;[B)Z
  */
 JNIEXPORT jboolean JNICALL
-    Java_org_imagemagick_MagickImage_dispatchImage__IIIILjava_lang_String_2_3B
+    Java_magick_MagickImage_dispatchImage__IIIILjava_lang_String_2_3B
     (JNIEnv *env, jobject self,
      jint x, jint y, jint width, jint height,
      jstring map, jbyteArray pixels)
@@ -2612,7 +2612,7 @@ JNIEXPORT jboolean JNICALL
  * Signature: (IIIILjava/lang/String;[I)Z
  */
 JNIEXPORT jboolean JNICALL
-    Java_org_imagemagick_MagickImage_dispatchImage__IIIILjava_lang_String_2_3I
+    Java_magick_MagickImage_dispatchImage__IIIILjava_lang_String_2_3I
     (JNIEnv *env, jobject self,
      jint x, jint y, jint width, jint height,
      jstring map, jintArray pixels)
@@ -2671,7 +2671,7 @@ JNIEXPORT jboolean JNICALL
  * Signature: (IIIILjava/lang/String;[F)Z
  */
 JNIEXPORT jboolean JNICALL
-    Java_org_imagemagick_MagickImage_dispatchImage__IIIILjava_lang_String_2_3F
+    Java_magick_MagickImage_dispatchImage__IIIILjava_lang_String_2_3F
     (JNIEnv *env, jobject self,
      jint x, jint y, jint width, jint height,
      jstring map, jfloatArray pixels)
@@ -2728,7 +2728,7 @@ JNIEXPORT jboolean JNICALL
  * Method:    getMagick
  * Signature: ()Ljava/lang/String;
  */
-JNIEXPORT jstring JNICALL Java_org_imagemagick_MagickImage_getMagick
+JNIEXPORT jstring JNICALL Java_magick_MagickImage_getMagick
     (JNIEnv *env, jobject self)
 {
     Image *image = NULL;
@@ -2749,7 +2749,7 @@ JNIEXPORT jstring JNICALL Java_org_imagemagick_MagickImage_getMagick
  *
  * Contributed by Abdulbaset Gaddah <agaddah@yahoo.com>
  */
-JNIEXPORT void JNICALL Java_org_imagemagick_MagickImage_setMagick
+JNIEXPORT void JNICALL Java_magick_MagickImage_setMagick
     (JNIEnv *env, jobject self, jstring imageFormat)
 {
     Image *image = NULL;
@@ -2772,7 +2772,7 @@ JNIEXPORT void JNICALL Java_org_imagemagick_MagickImage_setMagick
  *
  * Contributed by Abdulbaset Gaddah <agaddah@yahoo.com>
  */
-JNIEXPORT jint JNICALL Java_org_imagemagick_MagickImage_getNumberColors
+JNIEXPORT jint JNICALL Java_magick_MagickImage_getNumberColors
     (JNIEnv *env, jobject self)
 {
     Image *image = NULL;
@@ -2803,7 +2803,7 @@ JNIEXPORT jint JNICALL Java_org_imagemagick_MagickImage_getNumberColors
  *
  * Contributed by Abdulbaset Gaddah <agaddah@yahoo.com>
  */
-JNIEXPORT void JNICALL Java_org_imagemagick_MagickImage_setNumberColors
+JNIEXPORT void JNICALL Java_magick_MagickImage_setNumberColors
     (JNIEnv *env, jobject self, jint numberColors)
 {
     Image *image = NULL;
@@ -2828,7 +2828,7 @@ JNIEXPORT void JNICALL Java_org_imagemagick_MagickImage_setNumberColors
  *
  * Contributed by Abdulbaset Gaddah <agaddah@yahoo.com>
  */
-JNIEXPORT jboolean JNICALL Java_org_imagemagick_MagickImage_isAnimatedImage
+JNIEXPORT jboolean JNICALL Java_magick_MagickImage_isAnimatedImage
     (JNIEnv *env, jobject self)
 {
     Image *image =
@@ -2848,7 +2848,7 @@ JNIEXPORT jboolean JNICALL Java_org_imagemagick_MagickImage_isAnimatedImage
  * Method:    rotateImage
  * Signature: (D)Lmagick/MagickImage;
  */
-JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_rotateImage
+JNIEXPORT jobject JNICALL Java_magick_MagickImage_rotateImage
   (JNIEnv *env, jobject self, jdouble degrees)
 {
     jobject newObj;
@@ -2886,7 +2886,7 @@ JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_rotateImage
  * Method:    shearImage
  * Signature: (DD)Lmagick/MagickImage;
  */
-JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_shearImage
+JNIEXPORT jobject JNICALL Java_magick_MagickImage_shearImage
   (JNIEnv *env, jobject self, jdouble x_shear, jdouble y_shear)
 {
     jobject newObj;
@@ -2926,7 +2926,7 @@ JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_shearImage
  * Method:    quantizeImage
  * Signature: (Lmagick/QuantizeInfo;)Z
  */
-JNIEXPORT jboolean JNICALL Java_org_imagemagick_MagickImage_quantizeImage
+JNIEXPORT jboolean JNICALL Java_magick_MagickImage_quantizeImage
   (JNIEnv *env, jobject self, jobject quantizeInfo)
 {
     QuantizeInfo *qInfo;
@@ -2963,7 +2963,7 @@ JNIEXPORT jboolean JNICALL Java_org_imagemagick_MagickImage_quantizeImage
  * Method:    getColorspace
  * Signature: ()I
  */
-getIntMethod(Java_org_imagemagick_MagickImage_getColorspace,
+getIntMethod(Java_magick_MagickImage_getColorspace,
 	     colorspace,
 	     "magickImageHandle",
 	     Image)
@@ -2974,7 +2974,7 @@ getIntMethod(Java_org_imagemagick_MagickImage_getColorspace,
  * Method:    sharpenImage
  * Signature: (DD)Lmagick/MagickImage;
  */
-JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_sharpenImage
+JNIEXPORT jobject JNICALL Java_magick_MagickImage_sharpenImage
   (JNIEnv *env, jobject self, jdouble radius, jdouble sigma)
 {
     Image *image = NULL, *sharpenedImage = NULL;
@@ -3012,7 +3012,7 @@ JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_sharpenImage
  * Method:    despeckleImage
  * Signature: ()Lmagick/MagickImage;
  */
-JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_despeckleImage
+JNIEXPORT jobject JNICALL Java_magick_MagickImage_despeckleImage
     (JNIEnv *env, jobject self)
 {
     Image *image = NULL, *despeckledImage = NULL;
@@ -3051,7 +3051,7 @@ JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_despeckleImage
  * Method:    convolveImage
  * Signature: (I[D)Lmagick/MagickImage;
  */
-JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_convolveImage
+JNIEXPORT jobject JNICALL Java_magick_MagickImage_convolveImage
   (JNIEnv *env, jobject self, jint order, jdoubleArray kernel)
 {
     Image *image = NULL, *convolvedImage = NULL;
@@ -3093,7 +3093,7 @@ JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_convolveImage
  * Method:    getImageAttribute
  * Signature: (Ljava/lang/String;)Ljava/lang/String;
  */
-JNIEXPORT jstring JNICALL Java_org_imagemagick_MagickImage_getImageAttribute
+JNIEXPORT jstring JNICALL Java_magick_MagickImage_getImageAttribute
     (JNIEnv *env, jobject self, jstring key)
 {
     Image *image;
@@ -3123,7 +3123,7 @@ JNIEXPORT jstring JNICALL Java_org_imagemagick_MagickImage_getImageAttribute
  * Method:    setImageAttribute
  * Signature: (Ljava/lang/String;Ljava/lang/String;)Z
  */
-JNIEXPORT jboolean JNICALL Java_org_imagemagick_MagickImage_setImageAttribute
+JNIEXPORT jboolean JNICALL Java_magick_MagickImage_setImageAttribute
     (JNIEnv *env, jobject self, jstring key, jstring value)
 {
     Image *image;
@@ -3159,7 +3159,7 @@ JNIEXPORT jboolean JNICALL Java_org_imagemagick_MagickImage_setImageAttribute
  * Method:    blobToImage
  * Signature: (Lmagick/ImageInfo;[B)V
  */
-JNIEXPORT void JNICALL Java_org_imagemagick_MagickImage_blobToImage
+JNIEXPORT void JNICALL Java_magick_MagickImage_blobToImage
     (JNIEnv *env, jobject self, jobject imageInfoObj, jbyteArray blob)
 {
     size_t blobSiz;
@@ -3215,7 +3215,7 @@ JNIEXPORT void JNICALL Java_org_imagemagick_MagickImage_blobToImage
  * Method:    imageToBlob
  * Signature: (Lmagick/ImageInfo;)[B
  */
-JNIEXPORT jbyteArray JNICALL Java_org_imagemagick_MagickImage_imageToBlob
+JNIEXPORT jbyteArray JNICALL Java_magick_MagickImage_imageToBlob
  (JNIEnv *env, jobject self, jobject imageInfoObj)
 {
   ImageInfo *imageInfo;
@@ -3271,7 +3271,7 @@ JNIEXPORT jbyteArray JNICALL Java_org_imagemagick_MagickImage_imageToBlob
 }
 
 
-JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_nextImage
+JNIEXPORT jobject JNICALL Java_magick_MagickImage_nextImage
   (JNIEnv *env, jobject self)
 {
     jobject newObj;
@@ -3300,7 +3300,7 @@ JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_nextImage
     return newObj;
 }
 
-JNIEXPORT jboolean JNICALL Java_org_imagemagick_MagickImage_hasFrames
+JNIEXPORT jboolean JNICALL Java_magick_MagickImage_hasFrames
   (JNIEnv *env, jobject self)
 {
     Image *image = (Image*) getHandle(env, self, "magickImageHandle", NULL);
@@ -3316,7 +3316,7 @@ JNIEXPORT jboolean JNICALL Java_org_imagemagick_MagickImage_hasFrames
     }
 }
 
-JNIEXPORT jint JNICALL Java_org_imagemagick_MagickImage_getNumFrames
+JNIEXPORT jint JNICALL Java_magick_MagickImage_getNumFrames
   (JNIEnv *env, jobject self)
 {
     int count = 0;
@@ -3339,7 +3339,7 @@ JNIEXPORT jint JNICALL Java_org_imagemagick_MagickImage_getNumFrames
  * Method:    setUnits
  * Signature: (I)V
  */
-setIntMethod(Java_org_imagemagick_MagickImage_setUnits,
+setIntMethod(Java_magick_MagickImage_setUnits,
 	     units,
 	     "magickImageHandle",
 	     Image)
@@ -3351,7 +3351,7 @@ setIntMethod(Java_org_imagemagick_MagickImage_setUnits,
  * Method:    getUnits
  * Signature: ()I
  */
-getIntMethod(Java_org_imagemagick_MagickImage_getUnits,
+getIntMethod(Java_magick_MagickImage_getUnits,
 	     units,
 	     "magickImageHandle",
 	     Image)
@@ -3364,7 +3364,7 @@ getIntMethod(Java_org_imagemagick_MagickImage_getUnits,
  * Method:    setXResolution
  * Signature: (D)V
  */
-setDoubleMethod(Java_org_imagemagick_MagickImage_setXResolution,
+setDoubleMethod(Java_magick_MagickImage_setXResolution,
                 x_resolution,
                 "magickImageHandle",
                 Image)
@@ -3376,7 +3376,7 @@ setDoubleMethod(Java_org_imagemagick_MagickImage_setXResolution,
  * Method:    setYResolution
  * Signature: (D)V
  */
-setDoubleMethod(Java_org_imagemagick_MagickImage_setYResolution,
+setDoubleMethod(Java_magick_MagickImage_setYResolution,
                 y_resolution,
                 "magickImageHandle",
                 Image)
@@ -3387,7 +3387,7 @@ setDoubleMethod(Java_org_imagemagick_MagickImage_setYResolution,
  * Method:    getXResolution
  * Signature: ()D
  */
-getDoubleMethod(Java_org_imagemagick_MagickImage_getXResolution,
+getDoubleMethod(Java_magick_MagickImage_getXResolution,
                 x_resolution,
                 "magickImageHandle",
                 Image)
@@ -3397,7 +3397,7 @@ getDoubleMethod(Java_org_imagemagick_MagickImage_getXResolution,
  * Method:    getYResolution
  * Signature: ()D
  */
-getDoubleMethod(Java_org_imagemagick_MagickImage_getYResolution,
+getDoubleMethod(Java_magick_MagickImage_getYResolution,
                 y_resolution,
                 "magickImageHandle",
                 Image)
@@ -3407,7 +3407,7 @@ getDoubleMethod(Java_org_imagemagick_MagickImage_getYResolution,
  * Method:    setColorProfile
  * Signature: (Lmagick/ProfileInfo;)V
  */
-JNIEXPORT void JNICALL Java_org_imagemagick_MagickImage_setColorProfile
+JNIEXPORT void JNICALL Java_magick_MagickImage_setColorProfile
   (JNIEnv *env, jobject self, jobject profileObj)
 {
     unsigned char *info;
@@ -3449,7 +3449,7 @@ JNIEXPORT void JNICALL Java_org_imagemagick_MagickImage_setColorProfile
  * Method:    getColorProfile
  * Signature: ()Lmagick/ProfileInfo;
  */
-JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_getColorProfile
+JNIEXPORT jobject JNICALL Java_magick_MagickImage_getColorProfile
   (JNIEnv *env, jobject self)
 {
     Image *image = (Image*) getHandle(env, self, "magickImageHandle", NULL);
@@ -3467,7 +3467,7 @@ JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_getColorProfile
  * Method:    setIptcProfile
  * Signature: (Lmagick/ProfileInfo;)V
  */
-JNIEXPORT void JNICALL Java_org_imagemagick_MagickImage_setIptcProfile
+JNIEXPORT void JNICALL Java_magick_MagickImage_setIptcProfile
   (JNIEnv *env, jobject self, jobject profileObj)
 {
     unsigned char *info;
@@ -3515,7 +3515,7 @@ JNIEXPORT void JNICALL Java_org_imagemagick_MagickImage_setIptcProfile
  * Method:    getGenericProfileCount
  * Signature: ()I
  */
-JNIEXPORT jint JNICALL Java_org_imagemagick_MagickImage_getGenericProfileCount
+JNIEXPORT jint JNICALL Java_magick_MagickImage_getGenericProfileCount
   (JNIEnv *env, jobject self)
 {
     Image *image = (Image*) getHandle(env, self, "magickImageHandle", NULL);
@@ -3534,7 +3534,7 @@ JNIEXPORT jint JNICALL Java_org_imagemagick_MagickImage_getGenericProfileCount
  * Method:    getGenericProfile
  * Signature: (I)Lmagick/ProfileInfo;
  */
-JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_getGenericProfile
+JNIEXPORT jobject JNICALL Java_magick_MagickImage_getGenericProfile
   (JNIEnv *env, jobject self, jint index)
 {
     Image *image = (Image*) getHandle(env, self, "magickImageHandle", NULL);
@@ -3558,7 +3558,7 @@ JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_getGenericProfile
  * Method:    getIptcProfile
  * Signature: ()Lmagick/ProfileInfo;
  */
-JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_getIptcProfile
+JNIEXPORT jobject JNICALL Java_magick_MagickImage_getIptcProfile
   (JNIEnv *env, jobject self)
 {
     Image *image = (Image*) getHandle(env, self, "magickImageHandle", NULL);
@@ -3576,7 +3576,7 @@ JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_getIptcProfile
  * Method:    profileImage
  * Signature: (Ljava/lang/String;[B)Z
  */
-JNIEXPORT jboolean JNICALL Java_org_imagemagick_MagickImage_profileImage
+JNIEXPORT jboolean JNICALL Java_magick_MagickImage_profileImage
   (JNIEnv *env, jobject self, jstring profileName, jbyteArray profileData)
 {
     Image *image = NULL;
@@ -3637,7 +3637,7 @@ JNIEXPORT jboolean JNICALL Java_org_imagemagick_MagickImage_profileImage
 	 * Class:     magick_MagickImage
 	 * Method:    setImageProfile
 	 */
-	JNIEXPORT jboolean JNICALL Java_org_imagemagick_MagickImage_setImageProfile
+	JNIEXPORT jboolean JNICALL Java_magick_MagickImage_setImageProfile
 		(JNIEnv *env, jobject self, jstring profileName, jbyteArray profileData)
 	{
 			Image *image = NULL;
@@ -3701,7 +3701,7 @@ JNIEXPORT jboolean JNICALL Java_org_imagemagick_MagickImage_profileImage
  * Class:     magick_MagickImage
  * Method:    getImageProfile
  */
-JNIEXPORT jbyteArray JNICALL Java_org_imagemagick_MagickImage_getImageProfile
+JNIEXPORT jbyteArray JNICALL Java_magick_MagickImage_getImageProfile
 	(JNIEnv *env, jobject self, jstring profileName)
 {
   Image *image = NULL;
@@ -3765,7 +3765,7 @@ JNIEXPORT jbyteArray JNICALL Java_org_imagemagick_MagickImage_getImageProfile
  * Method:    montageImages
  * Signature: (Lmagick/MontageInfo;)Lmagick/MagickImage;
  */
-JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_montageImages
+JNIEXPORT jobject JNICALL Java_magick_MagickImage_montageImages
   (JNIEnv *env, jobject self, jobject montageInfo)
 {
     Image *image, *montage;
@@ -3811,7 +3811,7 @@ JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_montageImages
  * Method:    averageImages
  * Signature: ()Lmagick/MagickImage;
  */
-JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_averageImages
+JNIEXPORT jobject JNICALL Java_magick_MagickImage_averageImages
   (JNIEnv *env, jobject self)
 {
     Image *image, *average;
@@ -3850,7 +3850,7 @@ JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_averageImages
  * Method:    levelImage
  * Signature: (Ljava/lang/String;)Z
  */
-JNIEXPORT jboolean JNICALL Java_org_imagemagick_MagickImage_levelImage
+JNIEXPORT jboolean JNICALL Java_magick_MagickImage_levelImage
   (JNIEnv *env, jobject self, jstring levels)
 {
     Image *image = NULL;
@@ -3879,7 +3879,7 @@ JNIEXPORT jboolean JNICALL Java_org_imagemagick_MagickImage_levelImage
  * Method:    sizeBlob
  * Signature: ()I
  */
-JNIEXPORT jint JNICALL Java_org_imagemagick_MagickImage_sizeBlob
+JNIEXPORT jint JNICALL Java_magick_MagickImage_sizeBlob
   (JNIEnv *env, jobject self)
 {
     Image *image = NULL;
@@ -3901,7 +3901,7 @@ JNIEXPORT jint JNICALL Java_org_imagemagick_MagickImage_sizeBlob
  * Method:    setCompression
  * Signature: (I)V
  */
-setIntMethod(Java_org_imagemagick_MagickImage_setCompression,
+setIntMethod(Java_magick_MagickImage_setCompression,
              compression,
              "magickImageHandle",
              Image)
@@ -3913,7 +3913,7 @@ setIntMethod(Java_org_imagemagick_MagickImage_setCompression,
  * Method:    getCompression
  * Signature: ()I
  */
-getIntMethod(Java_org_imagemagick_MagickImage_getCompression,
+getIntMethod(Java_magick_MagickImage_getCompression,
              compression,
              "magickImageHandle",
              Image)
@@ -3923,7 +3923,7 @@ getIntMethod(Java_org_imagemagick_MagickImage_getCompression,
  * Method:    getImageType
  * Signature: ()I
  */
-JNIEXPORT jint JNICALL Java_org_imagemagick_MagickImage_getImageType
+JNIEXPORT jint JNICALL Java_magick_MagickImage_getImageType
   (JNIEnv *env, jobject self)
 {
     jint imageType;
@@ -3946,7 +3946,7 @@ JNIEXPORT jint JNICALL Java_org_imagemagick_MagickImage_getImageType
  * Method:    getOnePixel
  * Signature: (II)Lmagick/PixelPacket;
  */
-JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_getOnePixel
+JNIEXPORT jobject JNICALL Java_magick_MagickImage_getOnePixel
     (JNIEnv *env, jobject self, jint xPos, jint yPos)
 {
     Image *image = NULL;
@@ -3969,14 +3969,14 @@ JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_getOnePixel
     pixelPacketClass = (*env)->FindClass(env, "magick/PixelPacket");
     if (pixelPacketClass == 0) {
         throwMagickException(env,
-                             "Unable to locate class magick.PixelPacket");
+                             "Unable to locate class org.imagemagick.PixelPacket");
         return NULL;
     }
 
     consMethodID = (*env)->GetMethodID(env, pixelPacketClass,
                                        "<init>", "(IIII)V");
     if (consMethodID == 0) {
-        throwMagickException(env, "Unable to construct magick.PixelPacket");
+        throwMagickException(env, "Unable to construct org.imagemagick.PixelPacket");
         return NULL;
     }
 
@@ -3986,7 +3986,7 @@ JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_getOnePixel
                                      (jint) pixel.blue,
                                      (jint) pixel.opacity);
     if (jPixelPacket == NULL) {
-        throwMagickException(env, "Unable to construct magick.PixelPacket");
+        throwMagickException(env, "Unable to construct org.imagemagick.PixelPacket");
         return NULL;
     }
 
@@ -3999,7 +3999,7 @@ JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_getOnePixel
  * Method:    setBorderColor
  * Signature: (Lmagick/PixelPacket;)V
  */
-setPixelPacketMethod(Java_org_imagemagick_MagickImage_setBorderColor,
+setPixelPacketMethod(Java_magick_MagickImage_setBorderColor,
                      border_color,
                      "magickImageHandle",
                      Image)
@@ -4009,7 +4009,7 @@ setPixelPacketMethod(Java_org_imagemagick_MagickImage_setBorderColor,
  * Method:    getBorderColor
  * Signature: ()Lmagick/PixelPacket;
  */
-getPixelPacketMethod(Java_org_imagemagick_MagickImage_getBorderColor,
+getPixelPacketMethod(Java_magick_MagickImage_getBorderColor,
                      border_color,
                      "magickImageHandle",
                      Image)
@@ -4020,7 +4020,7 @@ getPixelPacketMethod(Java_org_imagemagick_MagickImage_getBorderColor,
  * Method:    setBackgroundColor
  * Signature: (Lmagick/PixelPacket;)V
  */
-setPixelPacketMethod(Java_org_imagemagick_MagickImage_setBackgroundColor,
+setPixelPacketMethod(Java_magick_MagickImage_setBackgroundColor,
                      background_color,
                      "magickImageHandle",
                      Image)
@@ -4030,7 +4030,7 @@ setPixelPacketMethod(Java_org_imagemagick_MagickImage_setBackgroundColor,
  * Method:    getBackgroundColor
  * Signature: ()Lmagick/PixelPacket;
  */
-getPixelPacketMethod(Java_org_imagemagick_MagickImage_getBackgroundColor,
+getPixelPacketMethod(Java_magick_MagickImage_getBackgroundColor,
                      background_color,
                      "magickImageHandle",
                      Image)
@@ -4040,7 +4040,7 @@ getPixelPacketMethod(Java_org_imagemagick_MagickImage_getBackgroundColor,
  * Method:    setDelay
  * Signature: (I)V
  */
-setIntMethod(Java_org_imagemagick_MagickImage_setDelay,
+setIntMethod(Java_magick_MagickImage_setDelay,
 	     delay,
 	     "magickImageHandle",
 	     Image)
@@ -4050,7 +4050,7 @@ setIntMethod(Java_org_imagemagick_MagickImage_setDelay,
  * Method:    getDelay
  * Signature: ()I
  */
-getIntMethod(Java_org_imagemagick_MagickImage_getDelay,
+getIntMethod(Java_magick_MagickImage_getDelay,
 	     delay,
 	     "magickImageHandle",
 	     Image)
@@ -4062,7 +4062,7 @@ getIntMethod(Java_org_imagemagick_MagickImage_getDelay,
  * Method:    setDispose
  * Signature: (I)V
  */
-setIntMethod(Java_org_imagemagick_MagickImage_setDispose,
+setIntMethod(Java_magick_MagickImage_setDispose,
 	     dispose,
 	     "magickImageHandle",
 	     Image)
@@ -4072,7 +4072,7 @@ setIntMethod(Java_org_imagemagick_MagickImage_setDispose,
  * Method:    getDispose
  * Signature: ()I
  */
-getIntMethod(Java_org_imagemagick_MagickImage_getDispose,
+getIntMethod(Java_magick_MagickImage_getDispose,
 	     dispose,
 	     "magickImageHandle",
 	     Image)
@@ -4083,7 +4083,7 @@ getIntMethod(Java_org_imagemagick_MagickImage_getDispose,
  * Method:    setIterations
  * Signature: (I)V
  */
-setIntMethod(Java_org_imagemagick_MagickImage_setIterations,
+setIntMethod(Java_magick_MagickImage_setIterations,
 	     iterations,
 	     "magickImageHandle",
 	     Image)
@@ -4093,7 +4093,7 @@ setIntMethod(Java_org_imagemagick_MagickImage_setIterations,
  * Method:    getIterations
  * Signature: ()I
  */
-getIntMethod(Java_org_imagemagick_MagickImage_getIterations,
+getIntMethod(Java_magick_MagickImage_getIterations,
 	     iterations,
 	     "magickImageHandle",
 	     Image)
@@ -4104,7 +4104,7 @@ getIntMethod(Java_org_imagemagick_MagickImage_getIterations,
  * Method:    setColors
  * Signature: (I)V
  */
-setIntMethod(Java_org_imagemagick_MagickImage_setColors,
+setIntMethod(Java_magick_MagickImage_setColors,
 	     colors,
 	     "magickImageHandle",
 	     Image)
@@ -4115,7 +4115,7 @@ setIntMethod(Java_org_imagemagick_MagickImage_setColors,
  * Method:    getColors
  * Signature: ()I
  */
-getIntMethod(Java_org_imagemagick_MagickImage_getColors,
+getIntMethod(Java_magick_MagickImage_getColors,
 	     colors,
 	     "magickImageHandle",
 	     Image)
@@ -4127,7 +4127,7 @@ getIntMethod(Java_org_imagemagick_MagickImage_getColors,
  * Method:    getTotalColors
  * Signature: ()I
  */
-getIntMethod(Java_org_imagemagick_MagickImage_getTotalColors,
+getIntMethod(Java_magick_MagickImage_getTotalColors,
 	     total_colors,
 	     "magickImageHandle",
 	     Image)
@@ -4138,7 +4138,7 @@ getIntMethod(Java_org_imagemagick_MagickImage_getTotalColors,
  * Method:    getColormap
  * Signature: (I)Lmagick/PixelPacket;
  */
-JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_getColormap__I
+JNIEXPORT jobject JNICALL Java_magick_MagickImage_getColormap__I
   (JNIEnv *env, jobject self, jint index)
 {
     Image *image;
@@ -4160,14 +4160,14 @@ JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_getColormap__I
     pixelPacketClass = (*env)->FindClass(env, "magick/PixelPacket");
     if (pixelPacketClass == 0) {
 	throwMagickException(env,
-			     "Unable to locate class magick.PixelPacket");
+			     "Unable to locate class org.imagemagick.PixelPacket");
 	return NULL;
     }
 
     consMethodID = (*env)->GetMethodID(env, pixelPacketClass,
 				       "<init>", "(IIII)V");
     if (consMethodID == 0) {
-	throwMagickException(env, "Unable to construct magick.PixelPacket");
+	throwMagickException(env, "Unable to construct org.imagemagick.PixelPacket");
 	return NULL;
     }
 
@@ -4177,7 +4177,7 @@ JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_getColormap__I
 		                     (jint) image->colormap[index].blue,
 		                     (jint) image->colormap[index].opacity);
     if (jPixelPacket == NULL) {
-	throwMagickException(env, "Unable to construct magick.PixelPacket");
+	throwMagickException(env, "Unable to construct org.imagemagick.PixelPacket");
 	return NULL;
     }
 
@@ -4191,7 +4191,7 @@ JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_getColormap__I
  * Method:    getColormap
  * Signature: ()[Lmagick/PixelPacket;
  */
-JNIEXPORT jobjectArray JNICALL Java_org_imagemagick_MagickImage_getColormap__
+JNIEXPORT jobjectArray JNICALL Java_magick_MagickImage_getColormap__
   (JNIEnv *env, jobject self)
 {
     Image *image;
@@ -4218,7 +4218,7 @@ JNIEXPORT jobjectArray JNICALL Java_org_imagemagick_MagickImage_getColormap__
     pixelPacketClass = (*env)->FindClass(env, "magick/PixelPacket");
     if (pixelPacketClass == 0) {
 	throwMagickException(env,
-			     "Unable to locate class magick.PixelPacket");
+			     "Unable to locate class org.imagemagick.PixelPacket");
 	return NULL;
     }
 
@@ -4226,7 +4226,7 @@ JNIEXPORT jobjectArray JNICALL Java_org_imagemagick_MagickImage_getColormap__
     consMethodID = (*env)->GetMethodID(env, pixelPacketClass,
 				       "<init>", "(IIII)V");
     if (consMethodID == 0) {
-	throwMagickException(env, "Unable to construct magick.PixelPacket");
+	throwMagickException(env, "Unable to construct org.imagemagick.PixelPacket");
 	return NULL;
     }
 
@@ -4249,7 +4249,7 @@ JNIEXPORT jobjectArray JNICALL Java_org_imagemagick_MagickImage_getColormap__
                               (jint) image->colormap[i].blue,
                               (jint) image->colormap[i].opacity);
         if (jPixelPacket == NULL) {
-            throwMagickException(env, "Unable to construct magick.PixelPacket");
+            throwMagickException(env, "Unable to construct org.imagemagick.PixelPacket");
             return NULL;
         }
 
@@ -4265,7 +4265,7 @@ JNIEXPORT jobjectArray JNICALL Java_org_imagemagick_MagickImage_getColormap__
  * Method:    trimImage
  * Signature: ()Lmagick/MagickImage;
  */
-JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_trimImage
+JNIEXPORT jobject JNICALL Java_magick_MagickImage_trimImage
     (JNIEnv *env, jobject self)
 {
     Image *image = NULL, *trimmedImage = NULL;
@@ -4303,7 +4303,7 @@ JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_trimImage
  * Method:    blurImageChannel
  * Signature: (DD)Lmagick/MagickImage;
  */
-JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_blurImageChannel
+JNIEXPORT jobject JNICALL Java_magick_MagickImage_blurImageChannel
   (JNIEnv *env, jobject self, int channelType, jdouble radius, jdouble sigma)
 {
     Image *image = NULL, *blurredImage = NULL;
@@ -4343,7 +4343,7 @@ JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_blurImageChannel
  * Method:    signatureImage
  * Signature: ()Z
  */
-JNIEXPORT jboolean JNICALL Java_org_imagemagick_MagickImage_signatureImage
+JNIEXPORT jboolean JNICALL Java_magick_MagickImage_signatureImage
     (JNIEnv *env, jobject self)
 {
     Image *image = NULL;
@@ -4367,7 +4367,7 @@ JNIEXPORT jboolean JNICALL Java_org_imagemagick_MagickImage_signatureImage
  * Method:    getQuality
  * Signature: ()I
  */
-getIntMethod(Java_org_imagemagick_MagickImage_getQuality,
+getIntMethod(Java_magick_MagickImage_getQuality,
 	     quality,
 	     "magickImageHandle",
 	     Image)
@@ -4377,7 +4377,7 @@ getIntMethod(Java_org_imagemagick_MagickImage_getQuality,
  * Method:    setRenderingIntent
  * Signature: (I)V
  */
-setIntMethod(Java_org_imagemagick_MagickImage_setRenderingIntent,
+setIntMethod(Java_magick_MagickImage_setRenderingIntent,
     rendering_intent,
     "magickImageHandle",
     Image)
@@ -4387,7 +4387,7 @@ setIntMethod(Java_org_imagemagick_MagickImage_setRenderingIntent,
  * Method:    getRenderingIntent
  * Signature: ()I
  */
-getIntMethod(Java_org_imagemagick_MagickImage_getRenderingIntent,
+getIntMethod(Java_magick_MagickImage_getRenderingIntent,
     rendering_intent,
     "magickImageHandle",
     Image)
@@ -4397,7 +4397,7 @@ getIntMethod(Java_org_imagemagick_MagickImage_getRenderingIntent,
  * Method:    setMatte
  * Signature: (Z)V
  */
-setBoolMethod(Java_org_imagemagick_MagickImage_setMatte,
+setBoolMethod(Java_magick_MagickImage_setMatte,
     matte,
     "magickImageHandle",
     Image)
@@ -4407,7 +4407,7 @@ setBoolMethod(Java_org_imagemagick_MagickImage_setMatte,
  * Method:    getMatte
  * Signature: ()Z
  */
-getBoolMethod(Java_org_imagemagick_MagickImage_getMatte,
+getBoolMethod(Java_magick_MagickImage_getMatte,
     matte,
     "magickImageHandle",
     Image)
