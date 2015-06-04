@@ -132,12 +132,12 @@ int getRectangle(JNIEnv *env, jobject jRect, RectangleInfo *iRect);
 
 
 /*
- * From a magick.PixelPacket object, construct a ImageMagick
+ * From a org.imagemagick.PixelPacket object, construct a ImageMagick
  * PixelPacket, as passed in from the parameter.
  *
  * Input:
  *   env           Java VM environment
- *   jPixelPacket  an instance of magick.PixelPacket
+ *   jPixelPacket  an instance of org.imagemagick.PixelPacket
  *
  * Output:
  *   iPixelPacket  to be initilised by values in jPixelPacket
@@ -151,7 +151,7 @@ int getPixelPacket(JNIEnv *env,
 		   PixelPacket *iPixelPacket);
 
 /*
- * Construct a new Java magick.MagickImage object and set the
+ * Construct a new Java org.imagemagick.MagickImage object and set the
  * handle.
  *
  * Input:
@@ -159,7 +159,7 @@ int getPixelPacket(JNIEnv *env,
  *   image   ImageMagick image handle
  *
  * Return:
- *   A new instance of magick.MagickImage object.
+ *   A new instance of org.imagemagick.MagickImage object.
  *
  */
 jobject newImageObject(JNIEnv *env, Image* image);
@@ -420,17 +420,17 @@ JNIEXPORT jobject JNICALL funcName                                            \
 	return NULL;                                                          \
     }                                                                         \
                                                                               \
-    pixelPacketClass = (*env)->FindClass(env, "magick/PixelPacket");          \
+    pixelPacketClass = (*env)->FindClass(env, "org.imagemagick/PixelPacket");          \
     if (pixelPacketClass == 0) {                                              \
 	throwMagickException(env,                                             \
-			     "Unable to locate class magick.PixelPacket");    \
+			     "Unable to locate class org.imagemagick.PixelPacket");    \
 	return NULL;                                                          \
     }                                                                         \
                                                                               \
     consMethodID = (*env)->GetMethodID(env, pixelPacketClass,                 \
 				       "<init>", "(IIII)V");                  \
     if (consMethodID == 0) {                                                  \
-	throwMagickException(env, "Unable to construct magick.PixelPacket");  \
+	throwMagickException(env, "Unable to construct org.imagemagick.PixelPacket");  \
 	return NULL;                                                          \
     }                                                                         \
                                                                               \
@@ -440,7 +440,7 @@ JNIEXPORT jobject JNICALL funcName                                            \
 		                     (jint) info->fieldName.blue,             \
 		                     (jint) info->fieldName.opacity);         \
     if (jPixelPacket == NULL) {                                               \
-	throwMagickException(env, "Unable to construct magick.PixelPacket");  \
+	throwMagickException(env, "Unable to construct org.imagemagick.PixelPacket");  \
 	return NULL;                                                          \
     }                                                                         \
                                                                               \

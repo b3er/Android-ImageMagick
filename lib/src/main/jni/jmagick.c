@@ -5,7 +5,7 @@
 #include <time.h>
 #include <sys/types.h>
 #include <magick/api.h>
-#include "jmagick.h"
+#include "jorg.imagemagick.h"
 
 
 
@@ -603,12 +603,12 @@ int getRectangle(JNIEnv *env, jobject jRect, RectangleInfo *iRect)
 
 
 /*
- * From a magick.PixelPacket object, construct a ImageMagick
+ * From a org.imagemagick.PixelPacket object, construct a ImageMagick
  * PixelPacket, as passed in from the parameter.
  *
  * Input:
  *   env           Java VM environment
- *   jPixelPacket  an instance of magick.PixelPacket
+ *   jPixelPacket  an instance of org.imagemagick.PixelPacket
  *
  * Output:
  *   iPixelPacket  to be initilised by values in jPixelPacket
@@ -648,7 +648,7 @@ int getPixelPacket(JNIEnv *env,
 
 
 /*
- * Construct a new Java magick.MagickImage object and set the
+ * Construct a new Java org.imagemagick.MagickImage object and set the
  * handle.
  *
  * Input:
@@ -656,7 +656,7 @@ int getPixelPacket(JNIEnv *env,
  *   image   ImageMagick image handle
  *
  * Return:
- *   A new instance of magick.MagickImage object.
+ *   A new instance of org.imagemagick.MagickImage object.
  *
  */
 jobject newImageObject(JNIEnv *env, Image* image)
@@ -778,7 +778,7 @@ jobject getProfileInfo(JNIEnv *env, ProfileInfo *profileInfo)
     profileInfoClass = (*env)->FindClass(env, "org.imagemagick.ProfileInfo");
     if (profileInfoClass == 0) {
         throwMagickException(env, "Unable to locate class "
-                                   "magick.ProfileInfo");
+                                   "org.imagemagick.ProfileInfo");
         return NULL;
     }
 
