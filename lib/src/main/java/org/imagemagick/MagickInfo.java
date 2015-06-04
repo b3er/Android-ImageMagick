@@ -25,11 +25,6 @@ public class MagickInfo extends Magick {
      * Automated destructor.
      */
 
-    public void finalize()
-    {
-	destroyMagickInfo(); 
-    }
-
     /**
      * Initialise the MagickInfo structure.
      */
@@ -39,7 +34,7 @@ public class MagickInfo extends Magick {
     /**
      * Deallocate the MagickInfo structure.
      */
-    private native void destroyMagickInfo();
+    public native void destroyMagickInfo();
 
 
     /**

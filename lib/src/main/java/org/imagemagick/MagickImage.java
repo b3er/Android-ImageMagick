@@ -111,14 +111,6 @@ public class MagickImage extends Magick {
     }
 
     /**
-     * This method will clean up the handle.
-     */
-    protected void finalize()
-    {
-	destroyImages();
-    }
-
-    /**
      * Allocate a blank image object.
      *
      * @param imageInfo specifies the parameters for the blank image
