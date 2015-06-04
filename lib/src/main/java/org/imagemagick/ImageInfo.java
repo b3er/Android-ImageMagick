@@ -35,14 +35,6 @@ public class ImageInfo extends Magick {
 		}
 
 		/**
-		 * To release memory on cleanup.
-		 */
-		protected void finalize()
-		{
-	destroyImageInfo();
-		}
-
-		/**
 		 * Initialises the internal native handle.
 		 */
 		public native void init()
@@ -308,7 +300,7 @@ public class ImageInfo extends Magick {
 		/**
 		 * Clean up the memory allocated for the handle
 		 */
-		private native void destroyImageInfo();
+		public native void destroyImageInfo();
 
 		/**
 		 * Set the magick attribute of the handle.
