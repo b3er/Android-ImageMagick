@@ -420,7 +420,7 @@ JNIEXPORT jobject JNICALL funcName                                            \
 	return NULL;                                                          \
     }                                                                         \
                                                                               \
-    pixelPacketClass = (*env)->FindClass(env, "org.imagemagick/PixelPacket");          \
+    pixelPacketClass = (*env)->FindClass(env, "org/imagemagick/PixelPacket");          \
     if (pixelPacketClass == 0) {                                              \
 	throwMagickException(env,                                             \
 			     "Unable to locate class org.imagemagick.PixelPacket");    \
