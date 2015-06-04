@@ -2368,7 +2368,7 @@ JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_unsharpMaskImage
     }
 
     GetExceptionInfo(&exception);
-    unsharpedImage = UnsharpMaskImage(image, radius, sigma,
+    unsharpedImage = UnsharpMaskImage(image, radius, sigma,amount, threshold, &exception);
 
     if (unsharpedImage == NULL) {
 	throwMagickApiException(env, "Cannot unsharp image", &exception);
