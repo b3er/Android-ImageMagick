@@ -10,11 +10,6 @@
 
 #include <android/log.h>
 
-#define APPNAME "Magick"
-
-#define LOG(a) //__android_log_print(ANDROID_LOG_VERBOSE, APPNAME, a);
-#define LOG2(a,b) //__android_log_print(ANDROID_LOG_VERBOSE, APPNAME, a, b);
-
 
 /*
  * Class:     magick_MagickImage
@@ -175,21 +170,18 @@ JNIEXPORT void JNICALL Java_org_imagemagick_MagickImage_readImage
     }
 
     /* Read the image. */
-#ifdef DIAGNOSTIC
-    fprintf(stderr, "Attempting to read from file %s\n", imageInfo->filename);
-#endif
-   // LOG2("Attempting to read from file %s\n", imageInfo->filename);
+
     GetExceptionInfo(&exception);
     image = ReadImage(imageInfo, &exception);
     if (image == NULL) {
-	//LOG("MagickImage: unable to read image");
+
         throwMagickApiException(env, "Unable to read image", &exception);
 	DestroyExceptionInfo(&exception);
 	return;
     }
     DestroyExceptionInfo(&exception);
 
-   // LOG("ReadImage completed\n");
+
     /* Get the old image handle and deallocate it (if required). */
     oldImage = (Image*) getHandle(env, self, "magickImageHandle", &fieldID);
     if (oldImage != NULL) {
@@ -224,9 +216,6 @@ JNIEXPORT void JNICALL Java_org_imagemagick_MagickImage_pingImage
     }
 
     // Read the image.
-#ifdef DIAGNOSTIC
-    fprintf(stderr, "Attempting to read from file %s\n", imageInfo->filename);
-#endif
 
     GetExceptionInfo(&exception);
 
@@ -238,10 +227,6 @@ JNIEXPORT void JNICALL Java_org_imagemagick_MagickImage_pingImage
     }
 
     DestroyExceptionInfo(&exception);
-
-#ifdef DIAGNOSTIC
-    fprintf(stderr, "PingImage completed\n");
-#endif
 
     // Get the old image handle and deallocate it (if required).
     oldImage = (Image*) getHandle(env, self, "magickImageHandle", &fieldID);
@@ -930,10 +915,6 @@ JNIEXPORT void JNICALL
 
     pixelArray = (*env)->GetByteArrayElements(env, pixels, 0);
 
-#ifdef DIAGNOSTIC
-    fprintf(stderr, "Image width is %d, height is %d\n", width, height);
-#endif
-
     /* Create that image. */
     GetExceptionInfo(&exception);
     image = ConstituteImage(width, height, mapStr,
@@ -1314,12 +1295,6 @@ JNIEXPORT jboolean JNICALL Java_org_imagemagick_MagickImage_drawImage
 	throwMagickException(env, "Cannot obtain image handle");
 	return JNI_FALSE;
     }
-
-#ifdef DIAGNOSTIC
-    printf("Primitive: %s\n", drawInfo->primitive);
-    printf("Font: %s\n", drawInfo->font);
-    printf("encoding: %s\n", drawInfo->encoding);
-#endif
 
     return DrawImage(image, drawInfo);
 }
@@ -2393,14 +2368,8 @@ JNIEXPORT jobject JNICALL Java_org_imagemagick_MagickImage_unsharpMaskImage
     }
 
     GetExceptionInfo(&exception);
-    #ifdef DIAGNOSTIC
-        fprintf(stderr, "Kalder UnsharpMaskImage() !!\n");
-    #endif
     unsharpedImage = UnsharpMaskImage(image, radius, sigma,
-                                             amount, threshold, &exception);
-     #ifdef DIAGNOSTIC
-         fprintf(stderr, "Kalder UnsharpMaskImage() færdig!!\n");
-     #endif
+
     if (unsharpedImage == NULL) {
 	throwMagickApiException(env, "Cannot unsharp image", &exception);
 	DestroyExceptionInfo(&exception);
@@ -2940,15 +2909,6 @@ JNIEXPORT jboolean JNICALL Java_org_imagemagick_MagickImage_quantizeImage
 	return JNI_FALSE;
     }
 
-#ifdef DIAGNOSTIC
-    fprintf(stderr, "qInfo.number_colors = %u\n", qInfo->number_colors);
-    fprintf(stderr, "qInfo.tree_depth = %u\n", qInfo->tree_depth);
-    fprintf(stderr, "qInfo.dither = %u\n", qInfo->dither);
-    fprintf(stderr, "qInfo.colorspace = %u\n", qInfo->colorspace);
-    fprintf(stderr, "qInfo.measure_error = %u\n", qInfo->measure_error);
-#endif
-
-
     return QuantizeImage(qInfo, image);
 }
 
@@ -3425,10 +3385,6 @@ JNIEXPORT void JNICALL Java_org_imagemagick_MagickImage_setColorProfile
 
     info = getByteArrayFieldValue(env, profileObj, "info", NULL, &infoSize);
 
-#ifdef DIAGNOSTIC
-    fprintf(stderr, "setColorProfile infoSize = %d  info = %p\n\n", infoSize, info);
-#endif
-
     if (info==NULL) {
         RemoveImageProfile(image,"icc");
     } else {
@@ -3486,10 +3442,6 @@ JNIEXPORT void JNICALL Java_org_imagemagick_MagickImage_setIptcProfile
 
     //name = getStringFieldValue(env, profileObj, "name", NULL);
     info = getByteArrayFieldValue(env, profileObj, "info", NULL, &infoSize);
-
-#ifdef DIAGNOSTIC
-    fprintf(stderr, "setIptcProfile 8BIM infoSize = %d  info = %p\n\n", infoSize, info);
-#endif
 
     if (info==NULL) {
 //        RemoveImageProfile(image,"iptc");
