@@ -178,22 +178,18 @@ JNIEXPORT void JNICALL Java_org_imagemagick_MagickImage_readImage
 #ifdef DIAGNOSTIC
     fprintf(stderr, "Attempting to read from file %s\n", imageInfo->filename);
 #endif
-    LOG2("Attempting to read from file %s\n", imageInfo->filename);
+   // LOG2("Attempting to read from file %s\n", imageInfo->filename);
     GetExceptionInfo(&exception);
     image = ReadImage(imageInfo, &exception);
     if (image == NULL) {
-	LOG("MagickImage: unable to read image");
+	//LOG("MagickImage: unable to read image");
         throwMagickApiException(env, "Unable to read image", &exception);
 	DestroyExceptionInfo(&exception);
 	return;
     }
     DestroyExceptionInfo(&exception);
 
-#ifdef DIAGNOSTIC
-    fprintf(stderr, "ReadImage completed\n");
-#endif
-
-    LOG("ReadImage completed\n");
+   // LOG("ReadImage completed\n");
     /* Get the old image handle and deallocate it (if required). */
     oldImage = (Image*) getHandle(env, self, "magickImageHandle", &fieldID);
     if (oldImage != NULL) {
