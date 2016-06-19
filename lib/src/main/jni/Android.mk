@@ -3,7 +3,7 @@ LOCAL_PATH := $(call my-dir)
 IMAGE_MAGICK 	    := ImageMagick-6.7.3-0/
 JPEG_SRC_PATH 		:= jpeg-8c/
 PHYSFS_SRC_PATH 	:= physfs-2.0.2/
-PNG_SRC_PATH 		:= libpng-1.5.6/
+PNG_SRC_PATH 		:= libpng-1.6.20/
 TIFF_SRC_PATH 		:= tiff-3.9.5/
 FREETYPE_SRC_PATH	:= freetype2-android/
 ZLIB_SRC_PATH	    := zlib128/
@@ -18,7 +18,7 @@ LOCAL_MODULE    := libjpego
 LOCAL_MODULE_FILENAME := libjpego
 
 LOCAL_C_INCLUDES  :=  \
-	${JPEG_SRC_PATH} 
+	${JPEG_SRC_PATH}
 
 LOCAL_SRC_FILES := \
         ${JPEG_SRC_PATH}jcapimin.c ${JPEG_SRC_PATH}jcapistd.c ${JPEG_SRC_PATH}jccoefct.c ${JPEG_SRC_PATH}jccolor.c ${JPEG_SRC_PATH}jcdctmgr.c ${JPEG_SRC_PATH}jchuff.c \
@@ -30,7 +30,7 @@ LOCAL_SRC_FILES := \
         ${JPEG_SRC_PATH}jfdctint.c ${JPEG_SRC_PATH}jidctflt.c ${JPEG_SRC_PATH}jidctfst.c ${JPEG_SRC_PATH}jidctint.c ${JPEG_SRC_PATH}jquant1.c \
         ${JPEG_SRC_PATH}jquant2.c ${JPEG_SRC_PATH}jutils.c ${JPEG_SRC_PATH}jmemmgr.c ${JPEG_SRC_PATH}jcarith.c ${JPEG_SRC_PATH}jdarith.c ${JPEG_SRC_PATH}jaricom.c \
         ${JPEG_SRC_PATH}jmemnobs.c
-       
+
 
 LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH)
 
@@ -57,7 +57,7 @@ LOCAL_CPPFLAGS  := ${LOCAL_CFLAGS}
 
 LOCAL_C_INCLUDES  :=  \
 	${PNG_SRC_PATH} \
-		
+
 LOCAL_SRC_FILES := \
 	${PNG_SRC_PATH}pngerror.c \
 	${PNG_SRC_PATH}pngwio.c \
@@ -77,6 +77,31 @@ LOCAL_SRC_FILES := \
 	${PNG_SRC_PATH}pngread.c \
 
 LOCAL_LDLIBS    := -llog -lz -L../lib -lGLESv1_CM
+
+ifeq ($(ARCH_ARM_HAVE_NEON),true)
+my_cflags_arm := -DPNG_ARM_NEON_OPT=2
+else
+my_cflags_arm := -DPNG_ARM_NEON_OPT=0
+endif
+
+my_cflags_arm64 := -DPNG_ARM_NEON_OPT=2
+
+my_src_files_arm := \
+                        ${PNG_SRC_PATH}arm/arm_init.c \
+                        ${PNG_SRC_PATH}arm/filter_neon.S \
+                        ${PNG_SRC_PATH}filter_neon_intrinsics.c
+
+
+LOCAL_CFLAGS_arm := $(my_cflags_arm)
+
+LOCAL_SRC_FILES_arm := $(my_src_files_arm)
+
+LOCAL_CFLAGS_arm64 := $(my_cflags_arm64)
+
+LOCAL_SRC_FILES_arm64 := $(my_src_files_arm)
+ifeq ($(TARGET_ARCH),arm64)
+LOCAL_SRC_FILES += $(my_src_files_arm)
+endif
 
 include $(BUILD_STATIC_LIBRARY)
 
