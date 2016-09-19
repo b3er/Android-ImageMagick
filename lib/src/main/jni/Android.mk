@@ -96,11 +96,11 @@ LOCAL_CFLAGS_arm := $(my_cflags_arm)
 
 LOCAL_SRC_FILES_arm := $(my_src_files_arm)
 
-LOCAL_CFLAGS_arm64 := $(my_cflags_arm64)
+#LOCAL_CFLAGS_arm64 := $(my_cflags_arm64)
 
-LOCAL_SRC_FILES_arm64 := $(my_src_files_arm)
+#LOCAL_SRC_FILES_arm64 := $(my_src_files_arm)
 ifeq ($(TARGET_ARCH),arm64)
-LOCAL_SRC_FILES += $(my_src_files_arm)
+LOCAL_CFLAGS := -DPNG_ARM_NEON_OPT=0
 endif
 
 include $(BUILD_STATIC_LIBRARY)
