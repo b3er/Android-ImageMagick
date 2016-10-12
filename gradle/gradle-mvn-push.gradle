@@ -205,6 +205,11 @@ afterEvaluate { project ->
                 }
             }
         }
+        allprojects {
+            tasks.withType(Javadoc) {
+                failOnError = false
+            }
+        }
 
         artifacts {
             if (project.getPlugins().hasPlugin('com.android.application') ||
